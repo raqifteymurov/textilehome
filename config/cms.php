@@ -11,7 +11,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'active_theme' => env('ACTIVE_THEME', 'textilehome'),
+=======
+    'active_theme' => env('ACTIVE_THEME', 'demo'),
+>>>>>>> 3c8671fe0b2ff4ea198c8f3c2fb3539fcf625041
 
     /*
     |--------------------------------------------------------------------------
