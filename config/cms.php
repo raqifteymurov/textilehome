@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'active_theme' => env('ACTIVE_THEME', 'demo'),
+    'active_theme' => env('ACTIVE_THEME', 'textilehome'),
 
     /*
     |--------------------------------------------------------------------------
