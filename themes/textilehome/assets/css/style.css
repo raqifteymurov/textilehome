@@ -447,12 +447,13 @@ table tbody {
 }
 
 .slick-append button {
-    font-size: 30px;
+    font-size: 20px;
     line-height: 1;
     position: inherit;
     display: inline-block;
     background-color: transparent;
     color: #555555;
+    padding: 5px;
 }
 
 .slick-append button:hover {
@@ -1511,7 +1512,7 @@ table tbody {
 }
 
 .main-menu ul li:hover > a,
-.main-menu ul li.active > a {
+.main-menu ul li.active a{
     color: #ffa073;
 }
 
@@ -2975,193 +2976,18 @@ color: #FFA073;
 .our_products_slider_mobile .slick-dots li.slick-active button {
     background-color: #FFA073;
 }
-
-
-
-
-
-
-/* .hero-slider-item {
-    height: 680px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100% !important;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+.shop-main-wrapper p{
+    color: darkslategrey;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px),
-    only screen and (max-width: 767.98px) {
-    .hero-slider-item {
-        height: 400px;
-    }
-}
-
-@media only screen and (max-width: 575.98px) {
-    .hero-slider-item {
-        height: 350px;
-    }
-}
-
-@media only screen and (max-width: 575.98px) {
-    .hero-slider-content {
-        padding-right: 140px;
-    }
-}
-
-@media only screen and (max-width: 479.98px) {
-    .hero-slider-content {
-        padding-right: 0;
-    }
-}
-.hero-slider-content .slide-title {
-    font-size: 60px;
-    font-weight: normal;
-    color: #fff;
-}
-.hero-slider-content .slide-title span {
-    display: block;
-}
-@media only screen and (min-width: 768px) and (max-width: 991.98px) {
-    .hero-slider-content .slide-title {
-        font-size: 50px;
-    }
-}
-
-@media only screen and (max-width: 767.98px) {
-    .hero-slider-content .slide-title {
-        font-size: 40px;
-        line-height: 1.2;
-    }
-}
-@media only screen and (max-width: 575.98px) {
-    .hero-slider-content .slide-title {
-        font-size: 30px;
-    }
-}
-
-.hero-slider-content .slide-desc {
-    color: #fff;
-    font-weight: 400;
-    line-height: 1.3;
-    padding-top: 20px;
-    font-family: "Poppins", sans-serif;
-}
-
-@media only screen and (max-width: 575.98px) {
-    .hero-slider-content .slide-desc {
-        padding-top: 10px;
-    }
-}
-
-.hero-overlay {
-    position: relative;
-}
-
-.hero-overlay:before {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-}
-
-@media only screen and (max-width: 767.98px) {
-    .hero-overlay:before {
-        display: block;
-    }
-} */
-
-/*------ hero slider area css end ------*/
-/*-- Hero Slider Content Animation --*/
-/* .hero-slider-content > * {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-name: fadeOutUp;
-    animation-name: fadeOutUp;
-} */
-
-/* .slick-active .hero-slider-content > * {
-    -webkit-animation-name: fadeInUp;
-    animation-name: fadeInUp;
-}
-
-.slick-active .hero-slider-content > *:nth-child(1) {
-    -webkit-animation-delay: 0.5s;
-    animation-delay: 0.5s;
-}
-
-.slick-active .hero-slider-content > *:nth-child(2) {
-    -webkit-animation-delay: 1s;
-    animation-delay: 1s;
-}
-
-.slick-active .hero-slider-content > *:nth-child(3) {
-    -webkit-animation-delay: 1.5s;
-    animation-delay: 1.5s;
-}
-
-@-webkit-keyframes fadeInUp {
-    from {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 100%, 0);
-        transform: translate3d(0, 100%, 0);
-    }
 
 
-    to {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 100%, 0);
-        transform: translate3d(0, 100%, 0);
-    }
 
-    to {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
 
-@-webkit-keyframes fadeOutUp {
-    from {
-        opacity: 1;
-    }
 
-    to {
-        opacity: 0;
-        -webkit-transform: translate3d(0, -100%, 0);
-        transform: translate3d(0, -100%, 0);
-    }
-}
 
-@keyframes fadeOutUp {
-    from {
-        opacity: 1;
-    }
 
-    to {
-        opacity: 0;
-        -webkit-transform: translate3d(0, -100%, 0);
-        transform: translate3d(0, -100%, 0);
-    }
-} */
 
 /*------ service policy start ------*/
 .policy-block {

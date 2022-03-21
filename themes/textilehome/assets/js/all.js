@@ -114,13 +114,49 @@ $('.our_products_slider').slick({
 		  ]
 		});
 //our-products-slider-end
+
+
+
+//testimonial-slider-start
+$('.testimonial_slider').slick({
+	speed:1000,
+	autoplay:true,
+	infinite:true,
+	 arrows:false,
 	 
+});
+//testimonial-slider-end
 
-	mybutton = document.getElementById("myBtn");
 
+//group-product-slider start
+$('.group_product_slider1').slick({
+	speed:2000,
+	autoplay:true,
+	infinite:true,
+	prevArrow: '.prev3_arrow',
+	nextArrow: '.next3_arrow',
+});
+$('.group_product_slider2').slick({
+	speed:2000,
+	autoplay:true,
+	infinite:true,
+	prevArrow: '.prev4_arrow',
+	nextArrow: '.next4_arrow',
+});
+$('.group_product_slider3').slick({
+	speed:2000,
+	autoplay:true,
+	infinite:true,
+	prevArrow: '.prev5_arrow',
+	nextArrow: '.next5_arrow',
+});
+//group-product-slider end
+
+	 
+//go to top button start
+   mybutton = document.getElementById("myBtn");
 	// When the user scrolls down 520px from the top of the document, show the button
 	window.onscroll = function() {scrollFunction()};
-
 function scrollFunction() {
   if (document.body.scrollTop > 520 || document.documentElement.scrollTop > 520) {
     mybutton.style.display = "block";
@@ -128,9 +164,18 @@ function scrollFunction() {
     mybutton.style.display = "none";
   }
 }
-
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+//go to top button end
+
+
+
+
+
+
+
+
+

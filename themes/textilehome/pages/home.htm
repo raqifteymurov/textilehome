@@ -92,11 +92,11 @@ title="Home"
 
 
     <!--Go to top button start-->
-    <button onclick="topFunction()" id="myBtn" title="Go to top" style="    height: 49px;
+    <!-- <button onclick="topFunction()" id="myBtn" title="Go to top" style="    height: 49px;
     width: 47px;
      
     justify-content: center;
-    align-items: center;"><span><i class="fa-solid fa-angle-up"></i></span></button>
+    align-items: center;"><span><i class="fa-solid fa-angle-up"></i></span></button> -->
     <!-- Go to top button end -->
 
 
@@ -1062,7 +1062,7 @@ title="Home"
                                                 <a href="wishlist.html" data-bs-toggle="tooltip" title=""
                                                     data-bs-original-title="Add to Wishlist"
                                                     aria-label="Add to Wishlist" tabindex="-1"><i
-                                                        class="pe-7s-like"></i></a> ~
+                                                        class="pe-7s-like"></i></a> 
                                                 <a href="cart.html" data-bs-toggle="tooltip" title=""
                                                     data-bs-original-title="Add to Cart" aria-label="Add to Cart"
                                                     tabindex="-1"><i class="pe-7s-cart"></i></a>
@@ -1872,7 +1872,7 @@ title="Home"
                     <!-- section title start -->
                     <div class="section-title text-center">
                         <h2 class="title">Testimonials</h2>
-                        <p class="sub-title">What they say</p>
+                        <p class="sub-title w-100">What they say</p>
                     </div>
                     <!-- section title start -->
                 </div>
@@ -1880,12 +1880,10 @@ title="Home"
             <div class="row">
                 <div class="col-12">
                     <div class="testimonial-content-wrapper">
-                        <div class="testimonial-carousel slick-initialized slick-slider">
-                            <div class="slick-list draggable">
-                                <div class="slick-track"
-                                    style="opacity: 1; width: 5250px; transform: translate3d(-750px, 0px, 0px);">
-                                    <div class="slick-slide slick-cloned" data-slick-index="-1" id="" aria-hidden="true"
-                                        style="width: 750px;" tabindex="-1">
+                        <div class=" ">
+                            <div class="draggable">
+                                <div class="testimonial_slider">
+                                    <div class=" "  style="width: 750px;" >
                                         <div>
                                             <div class="testimonial-content"
                                                 style="width: 100%; display: inline-block;">
@@ -1902,8 +1900,7 @@ title="Home"
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="slick-slide slick-current slick-active" data-slick-index="0"
-                                        aria-hidden="false" style="width: 750px;">
+                                    <div class=" " style="width: 750px;">
                                         <div>
                                             <div class="testimonial-content"
                                                 style="width: 100%; display: inline-block;">
@@ -1920,8 +1917,7 @@ title="Home"
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="slick-slide" data-slick-index="1" aria-hidden="true"
-                                        style="width: 750px;" tabindex="-1">
+                                    <div class="" style="width: 750px;">
                                         <div>
                                             <div class="testimonial-content"
                                                 style="width: 100%; display: inline-block;">
@@ -1956,60 +1952,9 @@ title="Home"
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="slick-slide slick-cloned" data-slick-index="3" id="" aria-hidden="true"
-                                        style="width: 750px;" tabindex="-1">
-                                        <div>
-                                            <div class="testimonial-content"
-                                                style="width: 100%; display: inline-block;">
-                                                <div class="testimonial-thumb">
-                                                    <img src="{{ 'assets/img/testimonial/testimonial-1.png' | theme }}"
-                                                        alt="testimonial-thumb">
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco cons dipiscing
-                                                    usmod.</p>
-                                                <h6 class="testimonial-author">lindsy Niloms</h6>
-                                                <span>CEO</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slick-slide slick-cloned" data-slick-index="4" id="" aria-hidden="true"
-                                        style="width: 750px;" tabindex="-1">
-                                        <div>
-                                            <div class="testimonial-content"
-                                                style="width: 100%; display: inline-block;">
-                                                <div class="testimonial-thumb">
-                                                    <img src="{{ 'assets/img/testimonial/testimonial-2.png' | theme }}"
-                                                        alt="testimonial-thumb">
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco cons dipiscing
-                                                    usmod.</p>
-                                                <h6 class="testimonial-author">Daisy Millan</h6>
-                                                <span>CEO</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slick-slide slick-cloned" data-slick-index="5" id="" aria-hidden="true"
-                                        style="width: 750px;" tabindex="-1">
-                                        <div>
-                                            <div class="testimonial-content"
-                                                style="width: 100%; display: inline-block;">
-                                                <div class="testimonial-thumb">
-                                                    <img src="{{ 'assets/img/testimonial/testimonial-3.png' | theme }}"
-                                                        alt="testimonial-thumb">
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco cons dipiscing
-                                                    usmod.</p>
-                                                <h6 class="testimonial-author">Anamika Lusy</h6>
-                                                <span>CEO</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
+                                     
+                                     
                                 </div>
                             </div>
                         </div>
@@ -2020,19 +1965,25 @@ title="Home"
     </section>
     <!-- testimonial area end -->
 
+
+
+
+
+
+
     <!-- group product start -->
     <section class="group-product-area section-padding pb-0">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-6">
                     <div class="categories-group-wrapper">
                         <!-- section title start -->
                         <div class="section-title-append">
                             <h3>New Arrivals</h3>
-                            <div class="slick-append"><button type="button" class="slick-prev slick-arrow" style=""><i
-                                        class="fa-solid fa-angle-left"></i></button><button type="button"
-                                    class="slick-next slick-arrow" style=""><i
-                                        class="fa-solid fa-angle-right"></i></button>
+                            <div class="slick-append "><button type="button" class="prev3_arrow" style=""><i
+                                        class="fa-solid fa-angle-left" style="font-size:25px"></i></button><button type="button"
+                                    class="next3_arrow" style=""><i
+                                        class="fa-solid fa-angle-right" style="font-size:25px"></i></button>
                             </div>
                         </div>
                         <!-- section title start -->
@@ -2040,59 +1991,10 @@ title="Home"
                         <!-- group list carousel start -->
                         <div class="group-list-item-wrapper">
                             <div class="group-list-carousel slick-initialized slick-slider">
-                                <div class="slick-list draggable">
-                                    <div class="slick-track"
-                                        style="opacity: 1; width: 2030px; transform: translate3d(-290px, 0px, 0px);">
-                                        <div class="slick-slide slick-cloned" data-slick-index="-1" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-7.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Handmade Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$55.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-9.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Exclusive Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$45.00</span>
-                                                                <span class="price-old"><del>$25.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div></div>
-                                        </div>
-                                        <div class="slick-slide slick-current slick-active" data-slick-index="0"
-                                            aria-hidden="false" style="width: 290px;">
+                                <div class="draggable">
+                                    <div class="group_product_slider1">
+                                        <div class=""
+                                              style="width: 290px;">
                                             <div>
                                                 <div class="group-slide-item"
                                                     style="width: 100%; display: inline-block;">
@@ -2160,8 +2062,10 @@ title="Home"
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="slick-slide" data-slick-index="1" aria-hidden="true"
-                                            style="width: 290px;" tabindex="-1">
+
+
+                                        <div  
+                                            style="width: 290px;"  >
                                             <div>
                                                 <div class="group-slide-item"
                                                     style="width: 100%; display: inline-block;">
@@ -2229,8 +2133,10 @@ title="Home"
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="slick-slide" data-slick-index="2" aria-hidden="true"
-                                            style="width: 290px;" tabindex="-1">
+
+
+                                        <div 
+                                            style="width: 290px;">
                                             <div>
                                                 <div class="group-slide-item"
                                                     style="width: 100%; display: inline-block;">
@@ -2277,192 +2183,7 @@ title="Home"
                                             </div>
                                             <div></div>
                                         </div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="3" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-14.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Fusions Ladies Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$50.00</span>
-                                                                <span class="price-old"><del>$29.99</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-18.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Quickiin Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$55.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-10.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Leather Ladies Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$45.00</span>
-                                                                <span class="price-old"><del>$25.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="4" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-12.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Jousti Duffle Bags</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$50.00</span>
-                                                                <span class="price-old"><del>$29.99</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-1.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Quickiin Hand Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$90.00</span>
-                                                                <span class="price-old"><del>$100.</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-3.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Jousti Gents Bags</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$20.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="5" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-7.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Handmade Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$55.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-9.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Exclusive Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$45.00</span>
-                                                                <span class="price-old"><del>$25.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div></div>
-                                        </div>
+ 
                                     </div>
                                 </div>
                             </div>
@@ -2470,15 +2191,16 @@ title="Home"
                         <!-- group list carousel start -->
                     </div>
                 </div>
-                <div class="col-lg-4">
+
+                <div class="col-lg-4 col-md-6">
                     <div class="categories-group-wrapper">
                         <!-- section title start -->
                         <div class="section-title-append">
                             <h3>best seller product</h3>
-                            <div class="slick-append"><button type="button" class="slick-prev slick-arrow" style=""><i
-                                        class="fa-solid fa-angle-left"></i></button><button type="button"
-                                    class="slick-next slick-arrow" style=""><i
-                                        class="fa-solid fa-angle-right"></i></button>
+                            <div class="slick-append"><button type="button" class="prev4_arrow" style=""><i
+                                        class="fa-solid fa-angle-left" style="font-size:25px"></i></button><button type="button"
+                                    class="next4_arrow" style=""><i
+                                        class="fa-solid fa-angle-right" style="font-size:25px"></i></button>
                             </div>
                         </div>
                         <!-- section title start -->
@@ -2486,59 +2208,12 @@ title="Home"
                         <!-- group list carousel start -->
                         <div class="group-list-item-wrapper">
                             <div class="group-list-carousel slick-initialized slick-slider">
-                                <div class="slick-list draggable">
-                                    <div class="slick-track"
-                                        style="opacity: 1; width: 2030px; transform: translate3d(-290px, 0px, 0px);">
-                                        <div class="slick-slide slick-cloned" data-slick-index="-1" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-13.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Fusions Ladies Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$55.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-15.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Exclusive Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$45.00</span>
-                                                                <span class="price-old"><del>$25.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div></div>
-                                        </div>
-                                        <div class="slick-slide slick-current slick-active" data-slick-index="0"
-                                            aria-hidden="false" style="width: 290px;">
+                                <div class="draggable">
+                                    <div class="group_product_slider2">
+                                       
+                                       
+                                        <div  
+                                            style="width: 290px;">
                                             <div>
                                                 <div class="group-slide-item"
                                                     style="width: 100%; display: inline-block;">
@@ -2606,8 +2281,10 @@ title="Home"
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="slick-slide" data-slick-index="1" aria-hidden="true"
-                                            style="width: 290px;" tabindex="-1">
+
+
+                                        <div  
+                                            style="width: 290px;"  >
                                             <div>
                                                 <div class="group-slide-item"
                                                     style="width: 100%; display: inline-block;">
@@ -2675,8 +2352,10 @@ title="Home"
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="slick-slide" data-slick-index="2" aria-hidden="true"
-                                            style="width: 290px;" tabindex="-1">
+
+
+                                        <div  
+                                            style="width: 290px;"  >
                                             <div>
                                                 <div class="group-slide-item"
                                                     style="width: 100%; display: inline-block;">
@@ -2723,192 +2402,7 @@ title="Home"
                                             </div>
                                             <div></div>
                                         </div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="3" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-1.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Quickiin Hand Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$50.00</span>
-                                                                <span class="price-old"><del>$29.99</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-3.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Jousti Duffle Bags</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$55.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-5.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Fusions Ladies Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$45.00</span>
-                                                                <span class="price-old"><del>$25.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="4" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-7.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Leather Ladies Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$50.00</span>
-                                                                <span class="price-old"><del>$29.99</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-9.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Quickiin Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$90.00</span>
-                                                                <span class="price-old"><del>$100.</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-11.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Jousti Gents Bags</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$20.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="5" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-13.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Fusions Ladies Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$55.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-15.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Exclusive Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$45.00</span>
-                                                                <span class="price-old"><del>$25.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div></div>
-                                        </div>
+                                  
                                     </div>
                                 </div>
                             </div>
@@ -2916,15 +2410,16 @@ title="Home"
                         <!-- group list carousel start -->
                     </div>
                 </div>
-                <div class="col-lg-4">
+
+                <div class="col-lg-4 col-md-6">
                     <div class="categories-group-wrapper">
                         <!-- section title start -->
                         <div class="section-title-append">
                             <h3>on-sale product</h3>
-                            <div class="slick-append"><button type="button" class="slick-prev slick-arrow" style=""><i
-                                        class="fa-solid fa-angle-left"></i></button><button type="button"
-                                    class="slick-next slick-arrow" style=""><i
-                                        class="fa-solid fa-angle-right"></i></button>
+                            <div class="slick-append"><button type="button" class="prev5_arrow" style=""><i
+                                        class="fa-solid fa-angle-left" style="font-size:25px"></i></button><button type="button"
+                                    class="next5_arrow" style=""><i
+                                        class="fa-solid fa-angle-right" style="font-size:25px"></i></button>
                             </div>
                         </div>
                         <!-- section title start -->
@@ -2932,59 +2427,11 @@ title="Home"
                         <!-- group list carousel start -->
                         <div class="group-list-item-wrapper">
                             <div class="group-list-carousel slick-initialized slick-slider">
-                                <div class="slick-list draggable">
-                                    <div class="slick-track"
-                                        style="opacity: 1; width: 2030px; transform: translate3d(-290px, 0px, 0px);">
-                                        <div class="slick-slide slick-cloned" data-slick-index="-1" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-18.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Quickiin Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$55.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-14.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Fusions Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$45.00</span>
-                                                                <span class="price-old"><del>$25.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div></div>
-                                        </div>
-                                        <div class="slick-slide slick-current slick-active" data-slick-index="0"
-                                            aria-hidden="false" style="width: 290px;">
+                                <div class="draggable">
+                                    <div class="group_product_slider3">
+                                       
+                                        <div  
+                                            style="width: 290px;">
                                             <div>
                                                 <div class="group-slide-item"
                                                     style="width: 100%; display: inline-block;">
@@ -3052,8 +2499,10 @@ title="Home"
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="slick-slide" data-slick-index="1" aria-hidden="true"
-                                            style="width: 290px;" tabindex="-1">
+
+
+                                        <div 
+                                            style="width: 290px;" >
                                             <div>
                                                 <div class="group-slide-item"
                                                     style="width: 100%; display: inline-block;">
@@ -3121,8 +2570,10 @@ title="Home"
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="slick-slide" data-slick-index="2" aria-hidden="true"
-                                            style="width: 290px;" tabindex="-1">
+
+
+                                        <div  
+                                            style="width: 290px;" >
                                             <div>
                                                 <div class="group-slide-item"
                                                     style="width: 100%; display: inline-block;">
@@ -3169,192 +2620,7 @@ title="Home"
                                             </div>
                                             <div></div>
                                         </div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="3" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-17.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Leather Hand Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$50.00</span>
-                                                                <span class="price-old"><del>$29.99</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-16.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Exclusive Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$55.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-12.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Jousti Duffle Bags</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$45.00</span>
-                                                                <span class="price-old"><del>$25.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="4" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-11.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Quickiin Hand Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$50.00</span>
-                                                                <span class="price-old"><del>$29.99</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-7.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Jousti Gents Bags</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$90.00</span>
-                                                                <span class="price-old"><del>$100.</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-2.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Leather Ladies Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$20.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="slick-slide slick-cloned" data-slick-index="5" id=""
-                                            aria-hidden="true" style="width: 290px;" tabindex="-1">
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-18.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Quickiin Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$55.00</span>
-                                                                <span class="price-old"><del>$30.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="group-slide-item"
-                                                    style="width: 100%; display: inline-block;">
-                                                    <div class="group-item">
-                                                        <div class="group-item-thumb">
-                                                            <a href="product-details.html" tabindex="-1">
-                                                                <img src="{{ 'assets/img/product/product-14.jpg' | theme }}"
-                                                                    alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="group-item-desc">
-                                                            <h6 class="group-product-name"><a
-                                                                    href="product-details.html" tabindex="-1">
-                                                                    Fusions Leather Bag</a></h6>
-                                                            <div class="price-box">
-                                                                <span class="price-regular">$45.00</span>
-                                                                <span class="price-old"><del>$25.00</del></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div></div>
-                                        </div>
+                                      
                                     </div>
                                 </div>
                             </div>
@@ -3366,6 +2632,8 @@ title="Home"
         </div>
     </section>
     <!-- group product end -->
+
+
 
     <!-- banner statistics area start -->
     <div class="banner-statistics-area section-padding">

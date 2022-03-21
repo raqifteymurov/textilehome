@@ -40,6 +40,13 @@
     $offCanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i></i></span>');
 
 	
+
+	//myjquerycodes
+
+
+
+
+//    header search icon start
 	let darvin=false;
 	$(".search-trigger").click(function(){
 		if(darvin){
@@ -51,12 +58,15 @@
 			$(".header-search-box ").addClass("search-box-open"); 
 		 	 
 		}
-	  });
-	  
+	  });   
+		  
 
 
-	 
-	 
+	  var $li = $('.main-menu ul li').click(function() {
+		$li.removeClass('active');
+		$(this).addClass('active');
+	});
+	 //myjqueycodes
 
 
  
@@ -432,6 +442,7 @@
             $('.mailchimp-error').html('' + resp.msg).fadeIn(900);
         }
 	}
-	
-})(jQuery);
+}
+(jQuery)
 
+);
