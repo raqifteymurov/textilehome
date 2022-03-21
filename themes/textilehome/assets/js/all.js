@@ -1,15 +1,19 @@
+//hero-slick-slider-start
 $('.hero-slider').slick({
-		dots: true,
+	 
 		speed:1000,
 		// autoplay:true,
 		infinite:true,
-		 dots:true,
+		 
 		fade:true,
 		prevArrow: '.prev1_arrow',
 		nextArrow: '.next1_arrow',
 		 
 	});
+//hero-slick-slider-end
 
+
+//featured-products-start
 	$('.slidername').slick({	 
 		speed: 1000,
 		slidesToShow: 4,
@@ -18,6 +22,7 @@ $('.hero-slider').slick({
 		// nextArrow:'.slick-next1',
 		autoplay: true,
 	 arrows:false,
+	 
 		responsive: [
 		  {
 			breakpoint: 1024,
@@ -36,18 +41,79 @@ $('.hero-slider').slick({
 			}
 		  },
 		  {
-			breakpoint: 480,
+			breakpoint: 380,
 			settings: {
 			  slidesToShow: 1,
 			  slidesToScroll: 1
 			}
 		  }
-		  // You can unslick at a given breakpoint now by adding:
-		  // settings: "unslick"
-		  // instead of a settings object
 		]
 	  });
-		  
+//featured-product-slider-end
+	  
+ 
+//our-products-slider-start
+$('.our_products_slider').slick({	 
+		speed: 1000,
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		 prevArrow:'.prev2_arrow',
+		 nextArrow:'.next2_arrow',
+		autoplay: true,
+		arrows:true,
+		responsive: [
+		  {
+			breakpoint: 992,
+			settings: {
+			  slidesToShow: 3,
+			  slidesToScroll: 1,
+			  infinite: true,
+			 
+			}
+		  }
+		]
+	  });
+
+	  
+	  $('.our_products_slider_mobile').slick({	 
+		speed: 1000,
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		//  prevArrow:'.prev3_arrow',
+		//  nextArrow:'.next3_arrow',
+		autoplay: true,
+		autoplaySpeed:2000,
+		arrows:false,
+		 
+		responsive: [
+			{
+			  breakpoint: 1024,
+			  settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				infinite: true,
+			   
+			  }
+			},
+			{
+			  breakpoint: 600,
+			  settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1,
+				dots:true
+			  }
+			},
+			{
+			  breakpoint: 480,
+			  settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1,
+                dots:true
+			  }
+			}
+		  ]
+		});
+//our-products-slider-end
 	 
 
 	mybutton = document.getElementById("myBtn");
