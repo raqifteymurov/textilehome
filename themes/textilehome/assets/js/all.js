@@ -152,7 +152,27 @@ $('.group_product_slider3').slick({
 });
 //group-product-slider end
 
+$('.blog_page_slider').slick({
+	speed:1000,
+ 
+	infinite:true,
+	 arrows:false,
+	 dots:true,
+	 fade:true
 	 
+});
+
+$('.blog_details_slider').slick({
+	speed:1000,
+ 
+	infinite:true,
+	 arrows:false,
+	 dots:true,
+	 fade:true
+	 
+});
+
+
 //go to top button start
    mybutton = document.getElementById("myBtn");
 	// When the user scrolls down 520px from the top of the document, show the button
@@ -171,7 +191,7 @@ function topFunction() {
 }
 //go to top button end
 
-
+//
 
 
 

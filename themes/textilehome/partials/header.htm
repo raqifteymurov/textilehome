@@ -62,13 +62,13 @@
                                 <!-- main menu navbar start -->
                                 <nav class="desktop-menu">
                                     <ul> 
-                                        <li class=""><a href="{{ 'home.htm' | page }}">Home</a> </li>
+                                        <li {% if this.page.id == 'home' %} class="active"{% endif %}><a href="{{ 'home' | page }}">Home</a> </li>
                                            
-                                        <li class=""><a href="{{ 'shop.htm' | page }}">shop</a>  </li>
+                                        <li{% if this.page.id == 'shop' %} class="active"{% endif %}><a href="{{ 'shop' | page }}">shop</a>  </li>
                                       
-                                        <li class=""><a href="blog-left-sidebar.html">Blog </a> </li>
+                                        <li {% if this.page.id == 'blog-page' %} class="active"{% endif %}><a href="{{ 'blog-page' | page }}">Blog </a> </li>
                                                                              
-                                        <li class=""><a href="contact-us.html">Contact us</a></li>
+                                        <li {% if this.page.id == 'contact-us' %} class="active"{% endif %}><a href="{{ 'contact-us' | page }}">Contact us</a></li>
                                     </ul>
                                 </nav>
                                 <!-- main menu navbar end -->
