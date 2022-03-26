@@ -1115,13 +1115,13 @@ table tbody {
 }
 
 /*------- short classes start -------*/
-.section-padding {
-    padding-top: 100px;
-    padding-bottom: 100px;
+.section-padding,.contact-info {
+    padding-top: 20px;
+    padding-bottom: 50px;
 }
 
 @media only screen and (max-width: 767.98px) {
-    .section-padding {
+    .section-padding,.contact-info {
         padding-top: 63px;
         padding-bottom: 63px;
     }
@@ -2657,9 +2657,14 @@ p {
 .imgcontent p {
     font-size: 20px;
 }
+ 
 .imgcontent .button:hover {
-    color: white;
+    color: white !important;
     background-color: black;
+}
+.imgcontent .button:hover a {
+    color: white !important;
+    
 }
 .imgcontent {
     display: flex;
@@ -2676,6 +2681,7 @@ p {
     background-color: white;
     transition-duration: 0.8s;
 }
+
 
 @media (min-width: 768px) {
     .imgcontent {
@@ -3031,7 +3037,9 @@ color: #FFA073;
     background-color: #FFA073;
 }
 
-
+.section-map iframe{
+    width:100% !important;
+}
 
 
 
@@ -6341,7 +6349,7 @@ blockquote {
 .login-reg-form-wrap {
     background-color: #fff;
     -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 104px rgba(0, 0, 0, 0.1);
     padding: 23px 30px 30px;
 }
 
@@ -6430,9 +6438,10 @@ blockquote {
     height: 100%;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px) {
-    .contact-info {
-        margin-top: 95px;
+@media only screen and (min-width: 992px){
+    .section-padding,.contact-info {
+        padding-top: 100px;
+        padding-bottom: 100px;
     }
 }
 
@@ -6719,3 +6728,4 @@ blockquote {
 
 /*----- footer area end -----*/
  
+

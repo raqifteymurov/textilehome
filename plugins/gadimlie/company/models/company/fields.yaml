@@ -1,0 +1,110 @@
+
+fields:
+    
+    name:
+        label: Şirkətin adı
+        span: storm
+        cssClass: col-md-6
+    logo:
+        label: Loqo
+        span: storm
+        cssClass: col-md-6
+        type: mediafinder
+    light_logo:
+        label: Light logo
+        span: storm 
+        cssClass: col-md-6
+        type: mediafinder
+    slogan:
+        label: Sloqan
+        span: storm
+        cssClass: col-md-6
+        
+
+tabs:
+    fields:
+# Main Info
+        address:
+            tab: Main Info
+            label: Address
+            span: storm
+            cssClass: col-md-6
+        tel:
+            tab: Main Info
+            label: Phone
+            span: storm
+            cssClass: col-md-6
+        email:
+            tab: Main Info
+            label: Email
+            span: storm 
+            cssClass: col-md-6
+            type: email
+        whatsapp:
+            tab: Main Info
+            label: Whatsapp
+            span: storm
+            cssClass: col-md-6
+        socials:
+            tab: Main Info
+            prompt: New social network
+            type: repeater
+            form:
+                fields: 
+                    name:
+                        label: Social networks name
+                    url: 
+                        label: Social networks url
+        testimonials:
+            tab: Testimonials
+            prompt: New testimonial
+            type: repeater
+            form:
+                fields:
+                    name:
+                        label: Name
+                    text: 
+                        label: Testimonial
+                        type: textarea
+                        size: large
+                    img:
+                        label: Image
+                        type: mediafinder
+        rations_title:
+            tab: Food rations
+            label: Food rations title
+            span: storm
+            cssClass: col-md-6
+        rations_subtitle:
+            tab: Food rations
+            label: Food rations subtitle
+            span: storm
+            cssClass: col-md-6
+        rations_text:
+            tab: Food rations
+            label: Food rations text
+            type: richeditor
+        rations_img:
+            tab: Food rations
+            label: Food rations image
+            type: mediafinder
+            span: storm
+            cssClass: col-md-6
+        fixed_img_title:
+            tab: Food rations
+            label: Fixed image title
+            span: storm
+            cssClass: col-md-6
+        fixed_img_text:
+            tab: Food rations
+            label: Fixed image text
+            type: richeditor
+        fixed_img:
+            tab: Food rations
+            label: Fixed image
+            type: mediafinder
+        
+
+          
+    
+        
