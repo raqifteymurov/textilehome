@@ -191,8 +191,32 @@ function topFunction() {
 }
 //go to top button end
 
-//
 
+// const toggle=document.getElementById("toggle");
+// const sidebar=document.getElementById("mySidenav");
+
+// document.body.click(function(e){
+// 		if(e.target.id !=='mySidenav'){
+// 			 sidebar.style.width="0";
+		 
+// 		}
+// })
+
+// toggle.onclick()==function(){
+//   toggle.classList.toggle("active");
+//   sidebar.classList.toggle("active");
+// }
+//in header left side bar start
+function openNav() {
+	document.getElementById("mySidenav").style.width = "350px";
+//    
+}
+function closeNav() {
+	document.getElementById("mySidenav").style.width = "0";
+  }
+
+ 
+//in header left side bar end
 
 
 
