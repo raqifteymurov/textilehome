@@ -5,11 +5,11 @@
     var $window = $(window);
     $window.on("scroll", function () {
         var scroll = $window.scrollTop();
-        // if (scroll < 100) {
-        // 	$(".sticky").removeClass("is-sticky");
-        // } else {
-        // 	$(".sticky").addClass("is-sticky");
-        // }
+        if (scroll < 100) {
+            $(".sticky").removeClass("is-sticky");
+        } else {
+            $(".sticky").addClass("is-sticky");
+        }
     });
     // tooltip active js
     var tooltipTriggerList = [].slice.call(
@@ -58,17 +58,7 @@
         }
     });
 
-    // $("body").click(function (e) {
-    //     // $("#mySidenav").css("width", "0");
-		 
-	// 	// var target = $( e.target);
-	// 	if (e.target.id==="toggle") {
-	// 		// $("#mySidenav").css("width", "0");
-	// 		console.log(e.target);
-	// 	}
-    // });
-
-	 
+    
     //myjqueycodes
 
     /*Close Off Canvas Sub Menu*/

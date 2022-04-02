@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html
+<html id="html"
     class="js sizes customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox picture srcset webworkers"
     lang="zxx">
 
@@ -19,6 +19,10 @@
     <link
         href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,600,600i,700,700i%7CPoppins:300,300i,400,400i,500,500i,600,700,800,900&amp;display=swap"
         rel="stylesheet">
+
+    <!--AOS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{'assets/css/vendor/bootstrap.min.css'| theme }}">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
@@ -28,7 +32,7 @@
     <!-- <link rel="stylesheet" href="{{'assets/css/vendor/font-awesome.min.css'| theme}}"> -->
     <!-- Slick slider css -->
     <!-- <link rel="stylesheet" href="{{'assets/css/plugins/slick.min.css'| theme}}"> -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"> -->
 
     <!-- animate css -->
@@ -60,12 +64,14 @@
     {% page %}
     {% partial 'footer'%}
 
-      <!--Go to top button start-->
+    <!--Go to top button start-->
     <button onclick="topFunction()" id="myBtn" title="Go to top" style="    height: 49px;
     width: 47px;
     justify-content: center;
     align-items: center; z-index:239;"><span><i class="fa-solid fa-angle-up"></i></span></button>
     <!-- Go to top button end -->
+
+
 
     <script src="{{'assets/js/vendor/modernizr-3.6.0.min.js'| theme }}"></script>
     <!-- jQuery JS -->
@@ -76,11 +82,13 @@
     <!-- <script type="text/javascript" src="node_modules/@glidejs/glide/dist/glide.min.js"></script> -->
 
     <!-- <script src="{{'assets/js/plugins/slick.min.js'| theme }}"></script> -->
-   
+
     <script src="{{ 'assets/js/all.js' | theme }}"></script>
-   
+
     <!-- Bootstrap JS -->
     <script src="{{'assets/js/vendor/bootstrap.bundle.min.js'| theme }}"></script>
+    <!--AOS-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Nice Select JS -->
     <script src="{{'assets/js/plugins/nice-select.min.js'| theme }}"></script>
     <!-- jquery UI JS -->
@@ -99,6 +107,13 @@
     <script src="{{'assets/js/main.js'| theme }}"></script>
     {% scripts %}
     {% framework extras %}
+
+    <script>
+
+        AOS.init();
+
+    </script>
+
 </body>
 
 </html>

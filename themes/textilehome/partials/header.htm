@@ -42,7 +42,7 @@
         <!-- header top end -->
         <!-- header middle area start -->
         <div class="header-main-area sticky" style="z-index: 231;">
-            <div class="container ">
+            <div class="container">
                 <div class="row align-items-center">
 
                     <!-- start logo area -->
@@ -74,6 +74,7 @@
                                             <li {% if this.page.id=='contact-us' %} class="active" {% endif %}><a
                                                     href="{{ 'contact-us' | page }}">Contact us</a></li>
                                     </ul>
+
                                 </nav>
                                 <!-- main menu navbar end -->
                             </div>
@@ -112,120 +113,125 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <div id="mySidenav" class="sidenav" >
-                                            <div class="sidenavclose">
-                                               
-                                                    <a href="javascript:void(0)" class="closebtn"
-                                                        onclick="closeNav()"><i class="fa-solid fa-xmark fa-rotate"></i></a>
-                                               
-                                            </div>
-                                            <div class="minicart-inner-content">
+                                        <div class="mysidebar">
+                                            <div id="mySidenav" class="sidenav" style="overflow-y: scroll;">
+                                                <div class="sidenavclose">
 
-                                                <div class="minicart-content-box container">
-                                                    <div class="minicart-item-wrapper">
-                                                        <div class="">
-                                                            <div class="minicart-item w-100 col-12 " style=" margin-bottom: 32px;
+                                                    <a href="javascript:void(0)" class="closebtn" style="z-index: 23;"
+                                                        onclick="closeNav()"><i
+                                                            class="fa-solid fa-xmark fa-rotate"></i></a>
+
+                                                </div>
+                                                <div class="minicart-inner-content">
+
+                                                    <div class="minicart-content-box container">
+                                                        <div class="minicart-item-wrapper">
+                                                            <div class="">
+                                                                <div class="minicart-item w-100 col-12 " style=" margin-bottom: 32px;
                                                             padding-bottom: 28px;">
 
 
-                                                                <div class="minicart-thumb col-7">
-                                                                    <a href="product-details.html">
-                                                                        <img src="{{'assets/img/cart/cart-1.jpg'|theme}}"
-                                                                            alt="product"
-                                                                            style="width: 100%; padding: unset; ">
-                                                                    </a>
-                                                                </div>
+                                                                    <div class="minicart-thumb col-7">
+                                                                        <a href="product-details.html">
+                                                                            <img src="{{'assets/img/cart/cart-1.jpg'|theme}}"
+                                                                                alt="product"
+                                                                                style="width: 100%; padding: unset; ">
+                                                                        </a>
+                                                                    </div>
 
 
-                                                                <div class="minicart-content col-4">
-                                                                    <h6 class="product-name">
-                                                                        <a href="product-details.html"
-                                                                            style="font-size:16px">Fusions
-                                                                            Leather Handbags</a>
-                                                                    </h6>
-                                                                    <p>
-                                                                        <span class="cart-quantity">1
-                                                                            <strong>×</strong></span>
-                                                                        <span class="cart-price">$100.00</span>
-                                                                    </p>
-                                                                </div>
+                                                                    <div class="minicart-content col-4">
+                                                                        <h6 class="product-name">
+                                                                            <a href="product-details.html"
+                                                                                style="font-size:16px">Fusions
+                                                                                Leather Handbags</a>
+                                                                        </h6>
+                                                                        <p>
+                                                                            <span class="cart-quantity">1
+                                                                                <strong>×</strong></span>
+                                                                            <span class="cart-price">$100.00</span>
+                                                                        </p>
+                                                                    </div>
 
-                                                                <div class="col-1" style="text-align: center;
+                                                                    <div class="col-1" style="text-align: center;
                                                                 display: flex;">
-                                                                    <button class="minicart-remove"><i class="fa-solid fa-xmark"></i></button>
+                                                                        <button class="minicart-remove"><i
+                                                                                class="fa-solid fa-xmark"></i></button>
+                                                                    </div>
+
                                                                 </div>
 
-                                                            </div>
 
-
-                                                            <div class="minicart-item">
-                                                                <div class="minicart-thumb">
-                                                                    <a href="product-details.html">
-                                                                        <img src="{{'assets/img/cart/cart-2.jpg'|theme}}"
-                                                                            alt="product">
-                                                                    </a>
+                                                                <div class="minicart-item">
+                                                                    <div class="minicart-thumb">
+                                                                        <a href="product-details.html">
+                                                                            <img src="{{'assets/img/cart/cart-2.jpg'|theme}}"
+                                                                                alt="product">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="minicart-content">
+                                                                        <h6 class="product-name">
+                                                                            <a href="product-details.html"
+                                                                                style="font-size: 16px; ">Quickiin
+                                                                                Exclusive Leather Bags</a>
+                                                                        </h6>
+                                                                        <p>
+                                                                            <span class="cart-quantity">1
+                                                                                <strong>×</strong></span>
+                                                                            <span class="cart-price">$80.00</span>
+                                                                        </p>
+                                                                    </div><button class="minicart-remove"><i
+                                                                            class="fa-solid fa-xmark"></i></button>
                                                                 </div>
-                                                                <div class="minicart-content">
-                                                                    <h6 class="product-name">
-                                                                        <a href="product-details.html"
-                                                                            style="font-size: 16px; ">Quickiin
-                                                                            Exclusive Leather Bags</a>
-                                                                    </h6>
-                                                                    <p>
-                                                                        <span class="cart-quantity">1
-                                                                            <strong>×</strong></span>
-                                                                        <span class="cart-price">$80.00</span>
-                                                                    </p>
-                                                                </div>
-                                                                <button class="minicart-remove"><i class="fa-solid fa-xmark"></i></button>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="minicart-pricing-box container " style="line-height: 23px;">
-                                                        <div style="">
-                                                            <div style="display: flex;
+                                                        <div class="minicart-pricing-box container "
+                                                            style="line-height: 23px;">
+                                                            <div style="">
+                                                                <div style="display: flex;
                                                             justify-content: space-between;">
-                                                                <span>sub-total</span>
-                                                                <span><strong>$300.00</strong></span>
-                                                            </div>
-                                                            <div style="display: flex;
+                                                                    <span>sub-total</span>
+                                                                    <span><strong>$300.00</strong></span>
+                                                                </div>
+                                                                <div style="display: flex;
                                                             justify-content: space-between;">
-                                                                <span>Eco Tax (-2.00)</span>
-                                                                <span><strong>$10.00</strong></span>
-                                                            </div>
-                                                            <div style="display: flex;
+                                                                    <span>Eco Tax (-2.00)</span>
+                                                                    <span><strong>$10.00</strong></span>
+                                                                </div>
+                                                                <div style="display: flex;
                                                             justify-content: space-between;">
-                                                                <span>VAT (20%)</span>
-                                                                <span><strong>$60.00</strong></span>
-                                                            </div>
-                                                            <div class="total" style="display: flex;
+                                                                    <span>VAT (20%)</span>
+                                                                    <span><strong>$60.00</strong></span>
+                                                                </div>
+                                                                <div class="total" style="display: flex;
                                                             justify-content: space-between;">
-                                                                <span>total</span>
-                                                                <span><strong>$370.00</strong></span>
+                                                                    <span>total</span>
+                                                                    <span><strong>$370.00</strong></span>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="minicart-button" >
-                                                        <a href="#"><i class="fa fa-shopping-cart"></i> View
-                                                            Cart</a>
-                                                        <a href="#"><i class="fa fa-share"></i> Checkout</a>
+                                                        <div class="minicart-button">
+                                                            <a href="#"><i class="fa fa-shopping-cart"></i> View
+                                                                Cart</a>
+                                                            <a href="#"><i class="fa fa-share"></i> Checkout</a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
+                                            </div>
                                         </div>
 
-                                        <div class="minicart-btn"   onclick="openNav()">
-                                            <button class="cart-button" > <i class="fa-solid fa-bag-shopping" id="toggle" 
-                                                    style="font-size: 25px; color: #222222; transition: .3s;" ></i></button>
+                                        <div class="minicart-btn" onclick="openNav()" id="toggle">
+                                            <button class="cart-button"> <i class="fa-solid fa-bag-shopping" 
+                                                    style="font-size: 25px; color: #222222; transition: .3s;"></i></button>
                                             <!-- <div class="notification"></div> -->
                                         </div>
 
 
 
-                                    </liid=>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
