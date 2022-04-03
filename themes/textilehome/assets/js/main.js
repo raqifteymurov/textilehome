@@ -353,7 +353,7 @@
         if ($button.hasClass("inc")) {
             var newVal = parseFloat(oldValue) + 1;
         } else {
-            // Don't allow decrementing below zero
+            // Don't allow decrementing below zero 
             if (oldValue > 0) {
                 var newVal = parseFloat(oldValue) - 1;
             } else {
@@ -396,11 +396,11 @@
 
     // Checkout Page accordion
     $("#create_pwd").on("change", function () {
-        $(".account-create").slideToggle("100");
+        $(".account-create").slideToggle("slow");
     });
 
     $("#ship_to_different").on("change", function () {
-        $(".ship-to-different").slideToggle("100");
+        $(".ship-to-different").slideToggle("slow");
     });
 
     // Payment Method Accordion
@@ -409,7 +409,6 @@
         $(".payment-method-details").slideUp();
         $('[data-method="' + $value + '"]').slideDown();
     });
-
     // Scroll to top active js
     $(window).on("scroll", function () {
         if ($(this).scrollTop() > 600) {

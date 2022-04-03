@@ -2669,7 +2669,7 @@ table tbody {
 }
 .imgcontent h1,
 p {
-    color: white;
+    color: grey;
     width: fit-content;
 }
 .imgcontent h1 {
@@ -6004,7 +6004,7 @@ blockquote {
 .single-input-item .nice-select {
     width: 100%;
     border-radius: 0;
-    height: 48px;
+    /* height: 48px; */
     border-color: #ccc;
     background-color: #f7f7f7;
 }
