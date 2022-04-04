@@ -47,16 +47,16 @@
     //myjquerycodes
 
     //    header search icon start
-    let darvin = false;
-    $(".search-trigger").click(function () {
-        if (darvin) {
-            darvin = false;
-            $(".header-search-box ").removeClass("search-box-open");
-        } else {
-            darvin = true;
-            $(".header-search-box ").addClass("search-box-open");
-        }
-    });
+    // let darvin = false;
+    // $(".search-trigger").click(function () {
+    //     if (darvin) {
+    //         darvin = false;
+    //         $(".header-search-box ").removeClass("search-box-open");
+    //     } else {
+    //         darvin = true;
+    //         $(".header-search-box ").addClass("search-box-open");
+    //     }
+    // });
 
     
     //myjqueycodes
@@ -325,10 +325,10 @@
     });
 
     //nice select active start
-    $("select").niceSelect();
+    // $('select').niceSelect();
 
-    // Image zoom effect
-    $(".img-zoom").zoom();
+    // // Image zoom effect
+    // $(".img-zoom").zoom();
 
     // offcanvas minicart button js
     $(".minicart-btn").on("click", function () {
@@ -344,25 +344,31 @@
         }
     );
 
-    // quantity change js
-    $(".pro-qty").prepend('<span class="dec qtybtn">-</span>');
-    $(".pro-qty").append('<span class="inc qtybtn">+</span>');
-    $(".qtybtn").on("click", function () {
-        var $button = $(this);
-        var oldValue = $button.parent().find("input").val();
-        if ($button.hasClass("inc")) {
-            var newVal = parseFloat(oldValue) + 1;
-        } else {
-            // Don't allow decrementing below zero 
-            if (oldValue > 0) {
-                var newVal = parseFloat(oldValue) - 1;
-            } else {
-                newVal = 0;
-            }
-        }
-        $button.parent().find("input").val(newVal);
-    });
 
+
+    // quantity change js
+    // $(".pro-qty").prepend('<span class="dec qtybtn">-</span>');
+    // $(".pro-qty").append('<span class="inc qtybtn">+</span>');
+    // $(".qtybtn").on("click", function () {
+    //     var $button = $(this);
+    //     var oldValue = $button.parent().find("input").val();
+    //     if ($button.hasClass("inc")) {
+    //         var newVal = parseFloat(oldValue) + 1;
+    //     } else {
+    //         // Don't allow decrementing below zero 
+    //         if (oldValue > 0) {
+    //             var newVal = parseFloat(oldValue) - 1;
+    //         } else {
+    //             newVal = 0;
+    //         }
+    //     }
+    //     $button.parent().find("input").val(newVal);
+    // });
+
+ 
+
+
+   
     // product view mode change js
     $(".product-view-mode a").on("click", function (e) {
         e.preventDefault();
@@ -427,9 +433,9 @@
     });
 
     // Search trigger js
-    $(".search-trigger").on("click", function () {
-        $(".header-search-box").toggleClass("search-box-open");
-    });
+    // $(".search-trigger").on("click", function () {
+    //     $(".header-search-box").toggleClass("search-box-open");
+    // });
 
     // Mailchimp for dynamic newsletter
     $("#mc-form").ajaxChimp({

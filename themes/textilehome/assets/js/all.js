@@ -158,7 +158,41 @@ $(".blog_details_slider").slick({
     fade: true,
 });
 
-
+$(".product_details").slick({
+     
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    infinite: true,
+    arrows:true,
+    prevArrow: ".left_prod_details",
+    nextArrow: ".right_prod_details",
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+            },
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+            },
+        },
+        {
+            breakpoint: 380,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            },
+        },
+    ],
+});
+ 
 
 
 
@@ -226,6 +260,57 @@ $("#toggle").on("click", () => {
 
 
 
+//remove search click outside start
+const $menu1 = $(".header-search-container");
+
+$(document).mouseup((e) => {
+    if (
+        !$menu1.is(e.target) && // if the target of the click isn't the container...
+        $menu1.has(e.target).length === 0
+    ) {
+        // ... nor a descendant of the container
+        $menu1.removeClass("is-active1");
+		 
+    }
+});
+
+$(".search-trigger").on("click", () => {
+    $menu1.toggleClass("is-active1");
+});
+//remove search click outside end
+
+
+
+
+//quantity change js
+$(".pro-qty").prepend('<span class="dec qtybtn">-</span>');
+$(".pro-qty").append('<span class="inc qtybtn">+</span>');
+$(".qtybtn").on("click", function () {
+    var $button = $(this);
+    var oldValue = $button.parent().find("input").val();
+    if ($button.hasClass("inc")) {
+        var newVal = parseFloat(oldValue) + 1;
+    } else {
+        // Don't allow decrementing below zero 
+        if (oldValue > 0) {
+            var newVal = parseFloat(oldValue) - 1;
+        } else {
+            newVal = 0;
+        }
+    }
+    $button.parent().find("input").val(newVal);
+});
+
+
+ // Image zoom effect
+ $(document).ready(function(){
+    $('.img-zoom').zoom();
+  });
+
+  //niceselect jquery
+  $(document).ready(function(){
+    $('select').niceSelect();
+  }); 
 
 
 
@@ -234,3 +319,20 @@ $("#toggle").on("click", () => {
 
 
 
+
+
+
+
+
+//  
+// var imgsrc2= $('#ptt').attr('src');
+//   $(".product_detail_images img").click(function (e) {
+//     var imgsrc1 = $(this).attr('src');
+//     imgsrc1=imgsrc2;   
+//   })
+
+
+   
+   
+   
+ 

@@ -12,7 +12,8 @@ url="/checkout"
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ 'home' | page }}"><i class="fa fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{{ 'home' | page }}"><i class="fa fa-home"></i></a>
+                                </li>
                                 <li class="breadcrumb-item"><a href="{{ 'shop' | page }}">shop</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">checkout</li>
                             </ul>
@@ -32,8 +33,9 @@ url="/checkout"
                     <!-- Checkout Login Coupon Accordion Start -->
                     <div class="checkoutaccordion" id="checkOutAccordion">
                         <div class="card">
-                            <h5>Returning Customer? <span data-bs-toggle="collapse" data-bs-target="#logInaccordion" aria-expanded="false" class="collapsed">Click
-                                        Here To Login</span></h5>
+                            <h5>Returning Customer? <span data-bs-toggle="collapse" data-bs-target="#logInaccordion"
+                                    aria-expanded="false" class="collapsed">Click
+                                    Here To Login</span></h5>
                             <div id="logInaccordion" class="collapse" data-bs-parent="#checkOutAccordion" style="">
                                 <div class="card-body">
                                     <p>If you have shopped with us before, please enter your details in the boxes
@@ -46,23 +48,28 @@ url="/checkout"
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="single-input-item">
-                                                                <input type="email" placeholder="Enter your Email" required="">
+                                                                <input type="email" placeholder="Enter your Email"
+                                                                    required="">
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12">
                                                             <div class="single-input-item">
-                                                                <input type="password" placeholder="Enter your Password" required="">
+                                                                <input type="password" placeholder="Enter your Password"
+                                                                    required="">
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="single-input-item">
-                                                        <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
+                                                        <div
+                                                            class="login-reg-form-meta d-flex align-items-center justify-content-between">
                                                             <div class="remember-meta">
                                                                 <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox" class="custom-control-input" id="rememberMe" required="">
-                                                                    <label class="custom-control-label" for="rememberMe">Remember
+                                                                    <input type="checkbox" class="custom-control-input"
+                                                                        id="rememberMe" required="">
+                                                                    <label class="custom-control-label"
+                                                                        for="rememberMe">Remember
                                                                         Me</label>
                                                                 </div>
                                                             </div>
@@ -83,8 +90,9 @@ url="/checkout"
                         </div>
 
                         <div class="card">
-                            <h5>Have A Coupon? <span data-bs-toggle="collapse" data-bs-target="#couponaccordion" aria-expanded="false" class="collapsed">Click
-                                Here To Enter Your Code</span></h5>
+                            <h5>Have A Coupon? <span data-bs-toggle="collapse" data-bs-target="#couponaccordion"
+                                    aria-expanded="false" class="collapsed">Click
+                                    Here To Enter Your Code</span></h5>
                             <div id="couponaccordion" class="collapse" data-bs-parent="#checkOutAccordion" style="">
                                 <div class="card-body">
                                     <div class="cart-update-option">
@@ -102,7 +110,7 @@ url="/checkout"
                     <!-- Checkout Login Coupon Accordion End -->
                 </div>
             </div>
-            
+
             <div class="row">
                 <!-- Checkout Billing Details -->
                 <div class="col-lg-6">
@@ -150,12 +158,28 @@ url="/checkout"
                                         <option value="London">London</option>
                                         <option value="London">London</option>
                                         <option value="Chaina">China</option>
-                                    </select><div class="nice-select" tabindex="0"><span class="current">Afghanistan</span><ul class="list"><li data-value="Afghanistan" class="option selected">Afghanistan</li><li data-value="Albania" class="option">Albania</li><li data-value="Algeria" class="option">Algeria</li><li data-value="Armenia" class="option">Armenia</li><li data-value="Bangladesh" class="option">Bangladesh</li><li data-value="India" class="option">India</li><li data-value="Pakistan" class="option">Pakistan</li><li data-value="England" class="option">England</li><li data-value="London" class="option">London</li><li data-value="London" class="option">London</li><li data-value="Chaina" class="option">China</li></ul></div>
+                                    </select>
+                                    <div class="nice-select" tabindex="0"><span class="current">Afghanistan</span>
+                                        <ul class="list">
+                                            <li data-value="Afghanistan" class="option selected">Afghanistan</li>
+                                            <li data-value="Albania" class="option">Albania</li>
+                                            <li data-value="Algeria" class="option">Algeria</li>
+                                            <li data-value="Armenia" class="option">Armenia</li>
+                                            <li data-value="Bangladesh" class="option">Bangladesh</li>
+                                            <li data-value="India" class="option">India</li>
+                                            <li data-value="Pakistan" class="option">Pakistan</li>
+                                            <li data-value="England" class="option">England</li>
+                                            <li data-value="London" class="option">London</li>
+                                            <li data-value="London" class="option">London</li>
+                                            <li data-value="Chaina" class="option">China</li>
+                                        </ul>
+                                    </div>
                                 </div>
 
                                 <div class="single-input-item">
                                     <label for="street-address" class="required mt-20">Street address</label>
-                                    <input type="text" id="street-address" placeholder="Street address Line 1" required="">
+                                    <input type="text" id="street-address" placeholder="Street address Line 1"
+                                        required="">
                                 </div>
 
                                 <div class="single-input-item">
@@ -213,14 +237,16 @@ url="/checkout"
                                             <div class="col-md-6">
                                                 <div class="single-input-item">
                                                     <label for="f_name_2" class="required">First Name</label>
-                                                    <input type="text" id="f_name_2" placeholder="First Name" required="">
+                                                    <input type="text" id="f_name_2" placeholder="First Name"
+                                                        required="">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="single-input-item">
                                                     <label for="l_name_2" class="required">Last Name</label>
-                                                    <input type="text" id="l_name_2" placeholder="Last Name" required="">
+                                                    <input type="text" id="l_name_2" placeholder="Last Name"
+                                                        required="">
                                                 </div>
                                             </div>
                                         </div>
@@ -245,12 +271,25 @@ url="/checkout"
                                                 <option value="London">London</option>
                                                 <option value="London">London</option>
                                                 <option value="Chaina">Chaina</option>
-                                            </select><div class="nice-select" tabindex="0"><span class="current">Bangladesh</span><ul class="list"><li data-value="Bangladesh" class="option selected">Bangladesh</li><li data-value="India" class="option">India</li><li data-value="Pakistan" class="option">Pakistan</li><li data-value="England" class="option">England</li><li data-value="London" class="option">London</li><li data-value="London" class="option">London</li><li data-value="Chaina" class="option">Chaina</li></ul></div>
+                                            </select>
+                                            <div class="nice-select" tabindex="0"><span
+                                                    class="current">Bangladesh</span>
+                                                <ul class="list">
+                                                    <li data-value="Bangladesh" class="option selected">Bangladesh</li>
+                                                    <li data-value="India" class="option">India</li>
+                                                    <li data-value="Pakistan" class="option">Pakistan</li>
+                                                    <li data-value="England" class="option">England</li>
+                                                    <li data-value="London" class="option">London</li>
+                                                    <li data-value="London" class="option">London</li>
+                                                    <li data-value="Chaina" class="option">Chaina</li>
+                                                </ul>
+                                            </div>
                                         </div>
 
                                         <div class="single-input-item">
                                             <label for="street-address_2" class="required mt-20">Street address</label>
-                                            <input type="text" id="street-address_2" placeholder="Street address Line 1" required="">
+                                            <input type="text" id="street-address_2" placeholder="Street address Line 1"
+                                                required="">
                                         </div>
 
                                         <div class="single-input-item">
@@ -276,7 +315,8 @@ url="/checkout"
 
                                 <div class="single-input-item">
                                     <label for="ordernote">Order Note</label>
-                                    <textarea name="ordernote" id="ordernote" cols="30" rows="3" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                    <textarea name="ordernote" id="ordernote" cols="30" rows="3"
+                                        placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                                 </div>
                             </form>
                         </div>
@@ -299,17 +339,20 @@ url="/checkout"
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><a href="product-details.html">Suscipit Vestibulum <strong> × 1</strong></a>
+                                            <td><a href="{{ 'product_details' | page }}">Suscipit Vestibulum <strong> ×
+                                                        1</strong></a>
                                             </td>
                                             <td>$165.00</td>
                                         </tr>
                                         <tr>
-                                            <td><a href="product-details.html">Ami Vestibulum suscipit <strong> × 4</strong></a>
+                                            <td><a href="{{ 'product_details' | page }}">Ami Vestibulum suscipit
+                                                    <strong> × 4</strong></a>
                                             </td>
                                             <td>$165.00</td>
                                         </tr>
                                         <tr>
-                                            <td><a href="product-details.html">Vestibulum suscipit <strong> × 2</strong></a>
+                                            <td><a href="{{ 'product_details' | page }}">Vestibulum suscipit <strong> ×
+                                                        2</strong></a>
                                             </td>
                                             <td>$165.00</td>
                                         </tr>
@@ -325,14 +368,16 @@ url="/checkout"
                                                 <ul class="shipping-type">
                                                     <li>
                                                         <div class="custom-control custom-radio">
-                                                            <input type="radio" id="flatrate" name="shipping" class="custom-control-input" checked="">
+                                                            <input type="radio" id="flatrate" name="shipping"
+                                                                class="custom-control-input" checked="">
                                                             <label class="custom-control-label" for="flatrate">Flat
                                                                 Rate: $70.00</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-radio">
-                                                            <input type="radio" id="freeshipping" name="shipping" class="custom-control-input">
+                                                            <input type="radio" id="freeshipping" name="shipping"
+                                                                class="custom-control-input">
                                                             <label class="custom-control-label" for="freeshipping">Free
                                                                 Shipping</label>
                                                         </div>
@@ -352,7 +397,8 @@ url="/checkout"
                                 <div class="single-payment-method show">
                                     <div class="payment-method-name">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="cashon" name="paymentmethod" value="cash" class="custom-control-input" checked="">
+                                            <input type="radio" id="cashon" name="paymentmethod" value="cash"
+                                                class="custom-control-input" checked="">
                                             <label class="custom-control-label" for="cashon">Cash On Delivery</label>
                                         </div>
                                     </div>
@@ -363,7 +409,8 @@ url="/checkout"
                                 <div class="single-payment-method">
                                     <div class="payment-method-name">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="directbank" name="paymentmethod" value="bank" class="custom-control-input">
+                                            <input type="radio" id="directbank" name="paymentmethod" value="bank"
+                                                class="custom-control-input">
                                             <label class="custom-control-label" for="directbank">Direct Bank
                                                 Transfer</label>
                                         </div>
@@ -377,7 +424,8 @@ url="/checkout"
                                 <div class="single-payment-method">
                                     <div class="payment-method-name">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="checkpayment" name="paymentmethod" value="check" class="custom-control-input">
+                                            <input type="radio" id="checkpayment" name="paymentmethod" value="check"
+                                                class="custom-control-input">
                                             <label class="custom-control-label" for="checkpayment">Pay with
                                                 Check</label>
                                         </div>
@@ -390,8 +438,11 @@ url="/checkout"
                                 <div class="single-payment-method">
                                     <div class="payment-method-name">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="paypalpayment" name="paymentmethod" value="paypal" class="custom-control-input">
-                                            <label class="custom-control-label" for="paypalpayment">Paypal <img src="{{ 'assets/img/paypal-card.jpg' | theme }}" class="img-fluid paypal-card" alt="Paypal"></label>
+                                            <input type="radio" id="paypalpayment" name="paymentmethod" value="paypal"
+                                                class="custom-control-input">
+                                            <label class="custom-control-label" for="paypalpayment">Paypal <img
+                                                    src="{{ 'assets/img/paypal-card.jpg' | theme }}"
+                                                    class="img-fluid paypal-card" alt="Paypal"></label>
                                         </div>
                                     </div>
                                     <div class="payment-method-details" data-method="paypal">

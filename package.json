@@ -43,5 +43,8 @@
         "mocha": "^6.2.0",
         "onchange": "^6.1.0",
         "sinon": "^7.4.1"
+    },
+    "dependencies": {
+        "jquery-zoom": "^1.7.21"
     }
 }
