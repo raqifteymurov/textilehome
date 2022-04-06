@@ -54,16 +54,12 @@ class ComponentManager
      */
     protected function loadComponents()
     {
-        /*
-         * Load module components
-         */
+        // Load module components
         foreach ($this->callbacks as $callback) {
             $callback($this);
         }
 
-        /*
-         * Load plugin components
-         */
+        // Load plugin components
         $pluginManager = PluginManager::instance();
         $plugins = $pluginManager->getPlugins();
 
@@ -83,7 +79,7 @@ class ComponentManager
      * registerComponents manually registers a component for consideration. Usage:
      *
      *     ComponentManager::registerComponents(function ($manager) {
-     *         $manager->registerComponent('October\Demo\Components\Test', 'testComponent');
+     *         $manager->registerComponent(\October\Demo\Components\Test::class, 'testComponent');
      *     });
      *
      * @return array Array values are class names.
@@ -134,7 +130,7 @@ class ComponentManager
     }
 
     /**
-     * registerOwnerForComponent
+     * setComponentOwnerAsPlugin
      */
     protected function setComponentOwnerAsPlugin(string $code, string $className, $pluginObj): void
     {
@@ -209,9 +205,12 @@ class ComponentManager
      */
     public function listComponentOwnerDetails()
     {
-        $owners = $this->ownerDetailsMap;
         $details = $this->listComponentDetails();
+        if (!$this->ownerDetailsMap) {
+            return [];
+        }
 
+        $owners = $this->ownerDetailsMap;
         foreach ($this->ownerDetailsMap as $ownerClass => $ownerArr) {
             $components = $ownerArr['components'] ?? [];
             foreach ($components as $code => $className) {

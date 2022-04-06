@@ -94,7 +94,7 @@ class Status extends ReportWidgetBase
             $this->getSecurityWarnings(),
             $this->getExtensionWarnings(),
             $this->getPluginWarnings(),
-            $this->getPathWarnings(),
+            $this->getPathWarnings()
         );
     }
 

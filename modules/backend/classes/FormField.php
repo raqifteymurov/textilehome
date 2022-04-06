@@ -497,10 +497,27 @@ class FormField extends FieldDefinition
     }
 
     /**
+     * nearestModelAttribute returns the nearest model and attribute name of a nested attribute,
+     * which is useful for checking if an attribute is jsonable or a relation.
+     */
+    public function nearestModelAttribute($model, $attribute = null)
+    {
+        return $this->resolveModelAttributeInternal($model, $attribute, [
+            'nearMatch' => true,
+            'objectOnly' => true
+        ]);
+    }
+
+    /**
      * resolveModelAttributeInternal is an internal method resolver for resolveModelAttribute
      */
-    protected function resolveModelAttributeInternal($model, $attribute = null, $objectOnly = false)
+    protected function resolveModelAttributeInternal($model, $attribute = null, $options = [])
     {
+        extract(array_merge([
+            'objectOnly' => false,
+            'nearMatch' => false
+        ], $options));
+
         if ($attribute === null) {
             $attribute = $this->valueFrom ?: $this->fieldName;
         }
@@ -510,6 +527,10 @@ class FormField extends FieldDefinition
 
         foreach ($parts as $part) {
             if ($objectOnly && !is_object($model->{$part})) {
+                if ($nearMatch) {
+                    return [$model, $part];
+                }
+
                 continue;
             }
 
@@ -569,58 +590,49 @@ class FormField extends FieldDefinition
     /**
      * getOptionsFromModel looks at the model for defined options.
      */
-    public function getOptionsFromModel($model, ?string $methodName, $data): array
+    public function getOptionsFromModel($model, $fieldOptions, $data)
     {
-        $fieldOptions = [];
-
-        // Field options are an explicit method reference
-        if ($methodName) {
-            // Calling via ClassName::method
-            if (
-                strpos($methodName, '::') !== false &&
-                ($staticMethod = explode('::', $methodName)) &&
-                count($staticMethod) === 2 &&
-                is_callable($staticMethod)
-            ) {
-                $fieldOptions = $staticMethod($model, $this);
-
-                if (!is_array($fieldOptions)) {
-                    throw new SystemException(Lang::get('backend::lang.field.options_static_method_invalid_value', [
-                        'class' => $staticMethod[0],
-                        'method' => $staticMethod[1]
-                    ]));
-                }
-            }
-            // Calling via $model->method
-            else {
-                if (!$this->objectMethodExists($model, $methodName)) {
-                    throw new SystemException(Lang::get('backend::lang.field.options_method_not_exists', [
-                        'model' => get_class($model),
-                        'method' => $methodName,
-                        'field' => $this->fieldName
-                    ]));
-                }
-
-                $fieldOptions = $model->$methodName($this->value, $this->fieldName, $data);
-            }
+        // Method name
+        if (is_string($fieldOptions)) {
+            $fieldOptions = $this->getOptionsFromModelAsString($model, $fieldOptions, $data);
         }
-        // Refer to the model method or any of its behaviors
-        else {
-            try {
-                [$model, $attribute] = $this->resolveModelAttributeInternal($model, $this->fieldName, true);
-            }
-            catch (Exception $ex) {
-                throw new SystemException(Lang::get('backend::lang.field.options_method_invalid_model', [
-                    'model' => get_class($model),
-                    'field' => $this->fieldName
+        // Default collection
+        elseif ($fieldOptions === null || $fieldOptions === true) {
+            $fieldOptions = $this->getOptionsFromModelAsDefault($model, $data);
+        }
+
+        // Cast collections to array
+        if ($fieldOptions instanceof Collection) {
+            $fieldOptions = $fieldOptions->all();
+        }
+
+        return $fieldOptions;
+    }
+
+    /**
+     * getOptionsFromModelAsString where options are an explicit method reference
+     */
+    protected function getOptionsFromModelAsString($model, string $methodName, $data)
+    {
+        // Calling via ClassName::method
+        if (
+            strpos($methodName, '::') !== false &&
+            ($staticMethod = explode('::', $methodName)) &&
+            count($staticMethod) === 2 &&
+            is_callable($staticMethod)
+        ) {
+            $fieldOptions = $staticMethod($model, $this);
+
+            if (!is_array($fieldOptions)) {
+                throw new SystemException(Lang::get('backend::lang.field.options_static_method_invalid_value', [
+                    'class' => $staticMethod[0],
+                    'method' => $staticMethod[1]
                 ]));
             }
-
-            $methodName = 'get'.studly_case($attribute).'Options';
-            if (
-                !$this->objectMethodExists($model, $methodName) &&
-                !$this->objectMethodExists($model, 'getDropdownOptions')
-            ) {
+        }
+        // Calling via $model->method
+        else {
+            if (!$this->objectMethodExists($model, $methodName)) {
                 throw new SystemException(Lang::get('backend::lang.field.options_method_not_exists', [
                     'model' => get_class($model),
                     'method' => $methodName,
@@ -628,17 +640,44 @@ class FormField extends FieldDefinition
                 ]));
             }
 
-            if ($this->objectMethodExists($model, $methodName)) {
-                $fieldOptions = $model->$methodName($this->value, $data);
-            }
-            else {
-                $fieldOptions = $model->getDropdownOptions($attribute, $this->value, $data);
-            }
+            $fieldOptions = $model->$methodName($this->value, $this->fieldName, $data);
         }
 
-        // Cast collections to array
-        if ($fieldOptions instanceof Collection) {
-            $fieldOptions = $fieldOptions->all();
+        return $fieldOptions;
+    }
+
+    /**
+     * getOptionsFromModelAsDefault refers to the model method or any of its behaviors
+     */
+    protected function getOptionsFromModelAsDefault($model, $data)
+    {
+        try {
+            [$model, $attribute] = $this->resolveModelAttributeInternal($model, $this->fieldName, ['objectOnly' => true]);
+        }
+        catch (Exception $ex) {
+            throw new SystemException(Lang::get('backend::lang.field.options_method_invalid_model', [
+                'model' => get_class($model),
+                'field' => $this->fieldName
+            ]));
+        }
+
+        $methodName = 'get'.studly_case($attribute).'Options';
+        if (
+            !$this->objectMethodExists($model, $methodName) &&
+            !$this->objectMethodExists($model, 'getDropdownOptions')
+        ) {
+            throw new SystemException(Lang::get('backend::lang.field.options_method_not_exists', [
+                'model' => get_class($model),
+                'method' => $methodName,
+                'field' => $this->fieldName
+            ]));
+        }
+
+        if ($this->objectMethodExists($model, $methodName)) {
+            $fieldOptions = $model->$methodName($this->value, $data);
+        }
+        else {
+            $fieldOptions = $model->getDropdownOptions($attribute, $this->value, $data);
         }
 
         return $fieldOptions;

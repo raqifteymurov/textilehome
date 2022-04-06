@@ -80,11 +80,7 @@ class Index extends Controller
             return;
         }
 
-        $true = function () {
-            return true;
-        };
-
-        if ($first = array_first(BackendMenu::listMainMenuItems(), $true)) {
+        if ($first = array_first(BackendMenu::listMainMenuItems())) {
             return Redirect::intended($first->url);
         }
     }

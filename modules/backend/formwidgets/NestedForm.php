@@ -132,7 +132,7 @@ class NestedForm extends FormWidgetBase
      */
     protected function processRelationMode()
     {
-        [$model, $attribute] = $this->resolveModelAttribute($this->valueFrom);
+        [$model, $attribute] = $this->nearestModelAttribute($this->valueFrom);
 
         if ($model instanceof Model && $model->hasRelation($attribute)) {
             $this->useRelation = true;

@@ -90,38 +90,32 @@ class GetAttrNode extends GetAttrExpression
      */
     public static function customGetAttribute(Environment $env, Source $source, $object, $item, array $arguments = [], $type = /* Template::ANY_CALL */ 'any', $isDefinedTest = false, $ignoreStrictCheck = false, $sandboxed = false, int $lineno = -1)
     {
-        // This will basically block attribute calls from being converted to method calls
-        // when dealing with October-flavored models.
+        // This will basically disable strict attribute checking for models since they contain
+        // dynamic attributes stored in the database or from accessors and should return null
         if ($type !== Template::METHOD_CALL) {
-            if ($object instanceof \October\Rain\Halcyon\Model) {
+            if (
+                $object instanceof \October\Rain\Halcyon\Model ||
+                $object instanceof \October\Rain\Database\Model
+            ) {
                 if ($isDefinedTest) {
                     return true;
                 }
 
-                if ($env->hasExtension(SandboxExtension::class)) {
-                    $env->getExtension(SandboxExtension::class)->checkPropertyAllowed($object, $item);
-                }
-
-                return $object->$item;
+                $ignoreStrictCheck = true;
             }
 
+            // Related attributes are lazy loaded and are therefore always defined
             if ($object instanceof \October\Rain\Database\Model) {
-                if ($isDefinedTest) {
-                    return true;
+                if ($object->hasRelation($item)) {
+                    $value = $object->$item;
+
+                    // {% if model.relationAsCollection %}
+                    if ($value instanceof Collection) {
+                        $value = $value->count() ? $value : [];
+                    }
+
+                    return $value;
                 }
-
-                if ($env->hasExtension(SandboxExtension::class)) {
-                    $env->getExtension(SandboxExtension::class)->checkPropertyAllowed($object, $item);
-                }
-
-                $value = $object->$item;
-
-                // {% if model.relationAsCollection %}
-                if ($object->hasRelation($item) && $value instanceof Collection) {
-                    return $value->count() ? $value : [];
-                }
-
-                return $value;
             }
         }
 

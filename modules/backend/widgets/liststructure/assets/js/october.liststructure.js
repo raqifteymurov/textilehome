@@ -25,7 +25,8 @@
         useTree: true,
         includeSortOrders: false,
         indentSize: 18,
-        maxDepth: null
+        maxDepth: null,
+        dragRow: true
     }
 
     ListStructureWidget.prototype.init = function() {
@@ -75,11 +76,9 @@
 
         var that = this;
 
-        this.sortable = Sortable.create(this.$tableBody.get(0), {
+        var sortableOptions = {
             // forceFallback: true,
             animation: 150,
-            // handle: 'a.list-reorder-handle',
-
             setData: function setData(dataTransfer, dragEl) {
                 var hoverElement = $(document.documentElement).hasClass('gecko') ? 'div' : 'canvas';
                 that.blankHoverImage = document.createElement(hoverElement);
@@ -93,7 +92,13 @@
             onChange: $.proxy(this.onChange, this),
             onEnd: $.proxy(this.onDragStop, this),
             onMove: $.proxy(this.onDragMove, this)
-        });
+        };
+
+        if (!this.options.dragRow) {
+            sortableOptions.handle = '.list-reorder-handle';
+        }
+
+        this.sortable = Sortable.create(this.$tableBody.get(0), sortableOptions);
 
         this.$el.on('drag', $.proxy(this.onDragging, this));
         this.$el.on('mousemove', $.proxy(this.onDragging, this));

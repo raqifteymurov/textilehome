@@ -145,3 +145,28 @@
         flex-basis: 250px;
     }
 }
+
+@media (max-width: @form-breakpoint-max) {
+    .field-repeater.repeater-mode-builder {
+        flex-direction: column;
+
+        > .field-repeater-builder {
+            width: 100%;
+            padding-right: 0;
+            flex-basis: auto;
+
+            > ul {
+                overflow-x: auto;
+                white-space: nowrap;
+                margin-bottom: 5px;
+            }
+
+            > ul > li.field-repeater-group {
+                width: 250px;
+                display: inline-block;
+                margin-right: 10px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}

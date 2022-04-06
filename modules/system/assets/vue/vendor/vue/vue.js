@@ -9027,6 +9027,7 @@
   Vue.config.isReservedAttr = isReservedAttr;
   Vue.config.getTagNamespace = getTagNamespace;
   Vue.config.isUnknownElement = isUnknownElement;
+  Vue.config.productionTip = false;
 
   // install platform runtime directives & components
   extend(Vue.options.directives, platformDirectives);

@@ -38,7 +38,7 @@
                 <ul
                     class="dropdown-menu dropdown-menu-right"
                     role="menu"
-                    data-dropdown-title="Manage Item"
+                    data-dropdown-title="<?= __("Manage Item") ?>"
                 ></ul>
             </div>
             <?php if ($showReorder): ?>

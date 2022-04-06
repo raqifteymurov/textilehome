@@ -10,8 +10,8 @@
     ?>
     <div class="form-control" <?= $field->readOnly ? 'disabled="disabled"' : '' ?>>
         <?php if (is_array($fieldValue)): ?>
-            <?php if (substr($selectedValue[1], 0, 1) === '#'): ?>
-                <span class="status-indicator" style="background:<?= $selectedValue[1] ?>"></span>
+            <?php if (substr($fieldValue[1], 0, 1) === '#'): ?>
+                <span class="status-indicator" style="background:<?= $fieldValue[1] ?>"></span>
             <?php elseif (strpos($fieldValue[1], '.')): ?>
                 <img src="<?= $fieldValue[1] ?>" alt="" />
             <?php else: ?>

@@ -7,7 +7,7 @@
                 href="javascript:;"
                 tabindex="-1">
                 <i class="octo-icon-copy"></i>
-                Duplicate
+                <?= __("Duplicate") ?>
             </a>
         </li>
         <li role="separator" class="divider"></li>
@@ -19,7 +19,7 @@
             href="javascript:;"
             tabindex="-1">
             <i class="octo-icon-expand"></i>
-            Expand
+            <?= __("Expand") ?>
         </a>
     </li>
     <li role="presentation">
@@ -29,7 +29,7 @@
             href="javascript:;"
             tabindex="-1">
             <i class="octo-icon-collapse"></i>
-            Collapse
+            <?= __("Collapse") ?>
         </a>
     </li>
     <li role="presentation">
@@ -39,7 +39,7 @@
             href="javascript:;"
             tabindex="-1">
             <i class="octo-icon-long-arrow-up"></i>
-            Move Up
+            <?= __("Move Up") ?>
         </a>
     </li>
     <li role="presentation">
@@ -49,7 +49,7 @@
             href="javascript:;"
             tabindex="-1">
             <i class="octo-icon-long-arrow-down"></i>
-            Move Down
+            <?= __("Move Down") ?>
         </a>
     </li>
     <li role="separator" class="divider"></li>
@@ -60,7 +60,7 @@
             href="javascript:;"
             tabindex="-1">
             <i class="octo-icon-delete"></i>
-            Remove
+            <?= __("Remove") ?>
         </a>
     </li>
 </script>

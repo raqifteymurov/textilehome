@@ -16,6 +16,7 @@
     data-toggle-handler="<?= $this->getEventHandler('onToggleTreeNode') ?>"
     data-use-reorder="<?= $showReorder ?>"
     data-use-tree="<?= $showTree ?>"
+    data-drag-row="<?= $dragRow ?>"
     data-include-sort-orders="<?= $includeSortOrders ?>"
     data-indent-size="<?= $indentSize ?>"
     data-stripe-load-indicator

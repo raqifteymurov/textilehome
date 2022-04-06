@@ -43,6 +43,11 @@ class ListStructure extends Lists
     public $maxDepth = null;
 
     /**
+     * @var bool dragRow allows dragging the entire row in addition to the reorder handle.
+     */
+    public $dragRow = true;
+
+    /**
      * __construct the widget
      * @param \Backend\Classes\Controller $controller
      * @param array $configuration Proactive configuration definition.
@@ -63,6 +68,7 @@ class ListStructure extends Lists
     {
         $this->fillFromConfig([
             'maxDepth',
+            'dragRow',
             'showTree',
             'showReorder',
             'treeExpanded',
@@ -102,9 +108,10 @@ class ListStructure extends Lists
         $this->showTree = $this->getIndentTreeStatus($this->records);
 
         $this->vars['useStructure'] = $this->useStructure;
-        $this->vars['showReorder'] = $this->showReorder;
-        $this->vars['showTree'] = $this->showTree;
         $this->vars['maxDepth'] = $this->maxDepth;
+        $this->vars['dragRow'] = $this->dragRow;
+        $this->vars['showTree'] = $this->showTree;
+        $this->vars['showReorder'] = $this->showReorder;
         $this->vars['includeSortOrders'] = $this->useSortOrdering();
         $this->vars['treeLevel'] = 0;
         $this->vars['indentSize'] = $this->getIndentSize();

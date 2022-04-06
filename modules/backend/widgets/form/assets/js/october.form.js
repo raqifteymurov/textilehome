@@ -234,7 +234,7 @@
         var $el = $(ev.target),
             handlerName = $el.data('tab-lazy-handler');
 
-        $.request(handlerName, {
+        $el.request(handlerName, {
             data: {
                 target: $el.data('target'),
                 name: $el.data('tab-name'),

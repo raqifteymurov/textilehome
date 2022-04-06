@@ -92,7 +92,7 @@ class TagList extends FormWidgetBase
             return;
         }
 
-        [$model, $attribute] = $this->resolveModelAttribute($this->valueFrom);
+        [$model, $attribute] = $this->nearestModelAttribute($this->valueFrom);
 
         if ($model instanceof Model && $model->hasRelation($attribute)) {
             $this->mode = static::MODE_RELATION;

@@ -1,13 +1,11 @@
 <?php namespace System\Classes;
 
-use Log;
 use View;
 use Lang;
 use System;
 use Cms\Classes\Controller as CmsController;
 use October\Rain\Exception\ErrorHandler as ErrorHandlerBase;
 use October\Rain\Exception\ApplicationException;
-use October\Rain\Exception\SystemException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Exception;
 
@@ -112,8 +110,11 @@ class ErrorHandler extends ErrorHandlerBase
             return parent::getDetailedMessage($exception);
         }
 
-        // Prevent database exceptions from leaking
-        if ($exception instanceof \Illuminate\Database\QueryException) {
+        // Prevent PHP and database exceptions from leaking
+        if (
+            $exception instanceof \Illuminate\Database\QueryException ||
+            $exception instanceof \ErrorException
+        ) {
             return Lang::get('system::lang.page.custom_error.help');
         }
 

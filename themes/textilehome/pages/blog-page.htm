@@ -1,8 +1,15 @@
-title="Blog"
-layout="default"
-url="/blog-page"
-==
+url = "/blog-page"
+layout = "default"
+title = "Blog"
 
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog-details"
+==
 <main>
     <!-- breadcrumb area start -->
     <div class="breadcrumb-area">
@@ -12,7 +19,7 @@ url="/blog-page"
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{'home.htm'| page}}"><i
+                                <li class="breadcrumb-item"><a href="{{'home'| page}}"><i
                                             class="fa fa-home"></i></a></li>
                                 <li class="breadcrumb-item active" aria-current="page">blog no sidebar</li>
                             </ul>
@@ -24,6 +31,7 @@ url="/blog-page"
     </div>
     <!-- breadcrumb area end -->
 
+
     <!-- blog main wrapper start -->
     <div class="blog-main-wrapper section-padding">
         <div class="container">
@@ -32,30 +40,33 @@ url="/blog-page"
                     <div class="blog-item-wrapper">
                         <!-- blog item wrapper end -->
                         <div class="row mbn-30">
+                            {% for post in blogPosts.posts %}
                             <div class="col-md-6">
                                 <!-- blog post item start -->
                                 <div class="blog-post-item mb-30">
                                     <figure class="blog-thumb">
-                                        <a href="{{  'blog-details.htm' | page }}">
-                                            <img src="{{ 'assets/img/blog/blog-01.jpg' | theme  }}" alt="blog image">
+                                        <a href="{{  post.url }}">
+                                            {% for image in post.featured_images %}
+                                            <img src="{{ image.path }}" alt="blog image">
+                                            {% endfor %}
                                         </a>
                                     </figure>
                                     <div class="blog-content">
                                         <div class="blog-meta">
-                                            <p>14 Sep</p>
+                                            <p>{{post.published_at| date('d M')}}</p>
                                         </div>
                                         <h3 class="blog-title">
-                                            <a href="{{  'blog-details.htm' | page }}">Celebrity Daughter Changed</a>
+                                            <a href="{{  post.url }}">{{post.title}}</a>
                                         </h3>
-                                        <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed
-                                            do eius tempor incididunt ut labore.</p>
-                                        <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
+                                        <p class="blog-desc">{{post.excerpt}}</p>
+                                        <a href="{{  post.url }}" class="read-more">Read More</a>
                                     </div>
                                 </div>
                                 <!-- blog post item end -->
                             </div>
-                            <div class="col-md-6">
-                                <!-- blog post item start -->
+                            {% endfor %}
+                            <!-- <div class="col-md-6">
+                                
                                 <div class="blog-post-item mb-30">
                                     <figure class="blog-thumb">
                                         <div class="" style=" ">
@@ -125,11 +136,11 @@ url="/blog-page"
                                             do eius tempor incididunt ut labore.</p>
                                         <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- blog post item end -->
-                            </div>
-                            <div class="col-md-6">
-                                <!-- blog post item start -->
+                            <!-- </div> -->
+                            <!-- <div class="col-md-6">
+                                
                                 <div class="blog-post-item mb-30">
                                     <figure class="blog-thumb ratio ratio-16x9">
                                         <iframe
@@ -147,10 +158,10 @@ url="/blog-page"
                                         <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
                                     </div>
                                 </div>
-                                <!-- blog post item end -->
-                            </div>
-                            <div class="col-md-6">
-                                <!-- blog post item start -->
+                               
+                            </div> -->
+                            <!-- <div class="col-md-6">
+                               
                                 <div class="blog-post-item mb-30">
                                     <figure class="blog-thumb ratio ratio-16x9">
                                         <iframe src="https://www.youtube.com/embed/WeA7edXsU40"
@@ -168,10 +179,10 @@ url="/blog-page"
                                         <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
                                     </div>
                                 </div>
-                                <!-- blog post item end -->
-                            </div>
-                            <div class="col-md-6">
-                                <!-- blog post item start -->
+                                
+                            </div> -->
+                            <!-- <div class="col-md-6">
+                                
                                 <div class="blog-post-item mb-30">
                                     <figure class="blog-thumb">
                                         <a href="{{  'blog-details.htm' | page }}">
@@ -190,10 +201,10 @@ url="/blog-page"
                                         <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
                                     </div>
                                 </div>
-                                <!-- blog post item end -->
+                                
                             </div>
                             <div class="col-md-6">
-                                <!-- blog post item start -->
+                               
                                 <div class="blog-post-item mb-30">
                                     <figure class="blog-thumb">
                                         <a href="{{  'blog-details.htm' | page }}">
@@ -212,8 +223,8 @@ url="/blog-page"
                                         <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
                                     </div>
                                 </div>
-                                <!-- blog post item end -->
-                            </div>
+                               
+                            </div> -->
                         </div>
                         <!-- blog item wrapper end -->
 

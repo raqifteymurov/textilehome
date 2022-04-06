@@ -35,6 +35,14 @@ trait FormModelWidget
     }
 
     /**
+     * nearestModelAttribute
+     */
+    public function nearestModelAttribute($attribute)
+    {
+        return $this->formField->nearestModelAttribute($this->model, $attribute);
+    }
+
+    /**
      * Returns the model of a relation type,
      * supports nesting via HTML array.
      * @return Relation

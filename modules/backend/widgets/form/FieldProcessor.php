@@ -121,11 +121,7 @@ trait FieldProcessor
 
             // Defer the execution of option data collection
             $field->options(function () use ($field, $fieldOptions) {
-                if (!is_array($fieldOptions)) {
-                    return $field->getOptionsFromModel($this->model, $fieldOptions, $this->data);
-                }
-
-                return $fieldOptions;
+                return $field->getOptionsFromModel($this->model, $fieldOptions, $this->data);
             });
         }
     }
