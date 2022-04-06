@@ -11,7 +11,8 @@
         "october/all": "^2.0",
         "php-parallel-lint/php-console-color": "^1.0",
         "symfony/swiftmailer-bundle": "^3.5",
-        "symfony/mailer": "^5.4"
+        "symfony/mailer": "^5.4",
+        "rainlab/blog-plugin": "^1.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0|^9.0",
