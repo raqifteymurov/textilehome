@@ -5179,12 +5179,12 @@ blockquote {
     border-right: 1px solid #999;
 }
 
+
 /*----- shop main wrapper end -----*/
 /*----- product change view start -----*/
 .shop-product-wrap.list-view .product-item {
     display: none;
 }
-
 .shop-product-wrap.grid-view .product-item {
     display: block;
     -webkit-animation-name: zoomIn;
@@ -5197,7 +5197,6 @@ blockquote {
 .shop-product-wrap.grid-view .product-list-item {
     display: none !important;
 }
-
 .shop-product-wrap.list-view .product-list-item {
     display: -webkit-box;
     display: -webkit-flex;
@@ -5220,7 +5219,6 @@ blockquote {
 .shop-product-wrap [class*="col-"] {
     margin-bottom: 30px;
 }
-
 /*----- product change view end -----*/
 /*------ shop page style start ------*/
 /*----- product details slider start ----*/

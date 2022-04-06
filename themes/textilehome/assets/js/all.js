@@ -301,7 +301,6 @@ $(".qtybtn").on("click", function () {
     $button.parent().find("input").val(newVal);
 });
 
-
  // Image zoom effect
  $(document).ready(function(){
     $('.img-zoom').zoom();
@@ -311,28 +310,20 @@ $(".qtybtn").on("click", function () {
   $(document).ready(function(){
     $('select').niceSelect();
   }); 
+  
+
+  //product_details_change_images_for_zooming-in
+  var imgsrc2= $('#ptt').attr('src');
+  $(".product_detail_images img").click(function (e) {
+    $('#ptt').attr('src',$(this).attr('src') );
+    $(this).addClass('img-zoom');
+    $(document).ready(function(){
+        $('.img-zoom').zoom();
+      });
+  })
 
 
 
-
-
-
-
-
-
-
-
-
-
-//  
-// var imgsrc2= $('#ptt').attr('src');
-//   $(".product_detail_images img").click(function (e) {
-//     var imgsrc1 = $(this).attr('src');
-//     imgsrc1=imgsrc2;   
-//   })
-
-
-   
    
    
  
