@@ -1,0 +1,28 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Testimonial
+
+# Model Form Field configuration
+form: $/vadim/testimonials/models/testimonial/fields.yaml
+
+# Model Class name
+modelClass: Vadim\Testimonials\Models\Testimonial
+
+# Default redirect location
+defaultRedirect: vadim/testimonials/testimonials
+
+# Create page
+
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: vadim/testimonials/testimonials
+    redirectClose: vadim/testimonials/testimonials
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

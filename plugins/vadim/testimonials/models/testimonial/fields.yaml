@@ -1,0 +1,11 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: name
+    testimonial:
+        label: testimonial
+        type: textarea
+        size: large

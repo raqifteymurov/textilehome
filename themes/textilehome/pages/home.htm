@@ -1,6 +1,11 @@
-layout="default"
-url="/"
-title="Home"
+url = "/"
+layout = "default"
+title = "Home"
+
+[TestimonialsForm]
+thanksMessage = "Thanks for your opinion!"
+
+[TestimonialsList]
 ==
 <main>
     <!-- hero slider area start -->
@@ -1886,7 +1891,7 @@ title="Home"
                                                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                                                     ad minim veniam, quis nostrud exercitation ullamco cons dipiscing
                                                     usmod.</p>
-                                                <h6 class="testimonial-author">Anamika Lusy</h6>
+                                                <h6 class="testimonial-author">{{test.name}} Lusy</h6>
                                                 <span>CEO</span>
                                             </div>
                                         </div>
@@ -1945,7 +1950,6 @@ title="Home"
                                     </div>
 
 
-
                                 </div>
                             </div>
                         </div>
@@ -1955,6 +1959,7 @@ title="Home"
         </div>
     </section>
     <!-- testimonial area end -->
+    {% component 'TestimonialsForm'%}
 
 
 

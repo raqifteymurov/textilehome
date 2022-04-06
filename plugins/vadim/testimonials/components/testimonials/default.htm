@@ -1,0 +1,27 @@
+<form action="" data-request="onSave" method="post" data-request-flash>
+    <label for="name">Your name</label>
+    <input type="text" name="name">
+    <label for="testimonial">Testimonial</label>
+    <input type="text" name="testimonial">
+    <button type="submit">Send</button>
+</form>
+
+<!-- <script>
+    function formSuccess(form, context, data, textStatus, jqXHR) {
+       $.oc.flashMsg({
+           'text': data['msg'],
+           'class': status,
+           'interval': 3
+       });
+    }
+</script> -->
+
+{% flash %}
+    <p
+        data-control="flash-message"
+        class="{{ type }}"
+        data-interval="5">
+        {{ message }}
+    </p>
+{% endflash %}
+
