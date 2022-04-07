@@ -3243,7 +3243,7 @@ opacity: 1 !important;
 
 
 
-  
+
 
 /*------ service policy start ------*/
 .policy-block {
@@ -4454,7 +4454,7 @@ opacity: 1 !important;
 }
 
 .paginatoin-area .pagination-box li a {
-    color: #222222;
+    color: grey;
     height: 36px;
     width: 36px;
     font-size: 14px;
@@ -4471,7 +4471,7 @@ opacity: 1 !important;
 }
 
 .paginatoin-area .pagination-box li a:hover {
-    color: #fff;
+    color: #fff !important;
     border-color: #ffa073;
     background-color: #ffa073;
 }
@@ -4522,7 +4522,11 @@ opacity: 1 !important;
     line-height: 1.2;
     text-transform: capitalize;
 }
-
+@media only screen and (max-width: 992px) {
+    .blog-title {
+        font-size: 21px;
+    }
+}
 @media only screen and (max-width: 479.98px) {
     .blog-title {
         font-size: 21px;

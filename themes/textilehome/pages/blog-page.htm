@@ -1,10 +1,10 @@
-url = "/blog-page"
+url = "/blog-page/:page?"
 layout = "default"
 title = "Blog"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
-postsPerPage = 10
+postsPerPage = 9
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = "blog/category"
@@ -19,8 +19,8 @@ postPage = "blog-details"
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{'home'| page}}"><i
-                                            class="fa fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{{'home'| page}}"><i class="fa fa-home"></i></a>
+                                </li>
                                 <li class="breadcrumb-item active" aria-current="page">blog no sidebar</li>
                             </ul>
                         </nav>
@@ -41,12 +41,12 @@ postPage = "blog-details"
                         <!-- blog item wrapper end -->
                         <div class="row mbn-30">
                             {% for post in blogPosts.posts %}
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <!-- blog post item start -->
                                 <div class="blog-post-item mb-30">
                                     <figure class="blog-thumb">
                                         <a href="{{  post.url }}">
-                                            {% for image in post.featured_images %}
+                                            {% for image in post.featured_images|slice(0, 1) %}
                                             <img src="{{ image.path }}" alt="blog image">
                                             {% endfor %}
                                         </a>
@@ -137,7 +137,7 @@ postPage = "blog-details"
                                         <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
                                     </div>
                                 </div> -->
-                                <!-- blog post item end -->
+                            <!-- blog post item end -->
                             <!-- </div> -->
                             <!-- <div class="col-md-6">
                                 
@@ -227,17 +227,26 @@ postPage = "blog-details"
                             </div> -->
                         </div>
                         <!-- blog item wrapper end -->
-
+                        {% if posts.lastPage > 1 %}
                         <!-- start pagination area -->
                         <div class="paginatoin-area text-center">
-                            <ul class="pagination-box">
-                                <li><a class="previous" href="#"><i class="fa fa-angle-left"></i></a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a class="next" href="#"><i class="fa fa-angle-right"></i></a></li>
+                            <ul class="pagination-box d-flex flex-wrap">
+                              
+                                {% for page in 1..posts.lastPage%}
+
+                                <li class="{{posts.currentPage == page ? 'active' : null }}"><a
+                                        href="{{ 'blog-page'| page({page:page})}}">{{page}}</a></li>
+ 
+                                {% endfor %}
+                                {% if posts.currentPage != posts.lastPage %}
+                                <li><a href="{{ 'blog-page'| page({page: posts.currentPage+1})}}"><i
+                                            class="fa fa-angle-right"></i></a></li>
+                                {% endif %}
+                                
+
                             </ul>
                         </div>
+                        {% endif %}
                         <!-- end pagination area -->
                     </div>
                 </div>

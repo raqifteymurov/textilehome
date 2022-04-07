@@ -1,7 +1,12 @@
-title="Blog Page Details"
-layout="default"
-url="/blog-page/blog-details"
+url = "/blog-page/:slug"
+layout = "default"
+title = "Blog Page Details"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
 ==
+{% set posts = blogPost.posts %}
 <main>
     <!-- breadcrumb area start -->
     <div class="breadcrumb-area">
@@ -13,7 +18,7 @@ url="/blog-page/blog-details"
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{'home.htm'| page}}"><i
                                             class="fa fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="blog-left-sidebar.html">blog</a></li>
+                                <li class="breadcrumb-item"><a href="{{'blog-page'| page }}">Blog</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">blog details right sidebar</li>
                             </ul>
                         </nav>
@@ -124,38 +129,20 @@ url="/blog-page/blog-details"
                                 <div class="">
                                     <div class="draggable">
                                         <div class="blog_details_slider">
+                                            {% for img in post.featured_images %}
+                                                <div class=" " 
+                                                    style="width: 690px;" 
+                                                   >
+                                                    <div>
+                                                        <div class="blog-single-slide"
+                                                            style="width: 100%; display: inline-block;">
+                                                            <img src="{{ img.path }}"
+                                                                alt="blog image">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
                                             
-                                            <div class=" " data-slick-index="0"
-                                                aria-hidden="false" style="width: 690px;" role="tabpanel"
-                                                id="slick-slide00">
-                                                <div>
-                                                    <div class="blog-single-slide"
-                                                        style="width: 100%; display: inline-block;">
-                                                        <img src="{{ 'assets/img/blog/blog-01.jpg' | theme }}"
-                                                            alt="blog image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class=" " data-slick-index="1" aria-hidden="true"
-                                                style="width: 690px;" tabindex="-1" role="tabpanel" id="slick-slide01">
-                                                <div>
-                                                    <div class="blog-single-slide"
-                                                        style="width: 100%; display: inline-block;">
-                                                        <img src="{{ 'assets/img/blog/blog-02.jpg' | theme }}"
-                                                            alt="blog image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class=" " data-slick-index="2" aria-hidden="true"
-                                                style="width: 690px;" tabindex="-1" role="tabpanel" id="slick-slide02">
-                                                <div>
-                                                    <div class="blog-single-slide"
-                                                        style="width: 100%; display: inline-block;">
-                                                        <img src="{{ 'assets/img/blog/blog-03.jpg' | theme }}"
-                                                            alt="blog image">
-                                                    </div>
-                                                </div>
-                                            </div>
                                            
                                             
                                             
@@ -166,40 +153,13 @@ url="/blog-page/blog-details"
                             </figure>
                             <div class="blog-content">
                                 <h3 class="blog-title">
-                                    Celebrity Daughter Opens Up About Having Her Eye Color Changed
+                                    {{post.title}}
                                 </h3>
                                 <div class="blog-meta">
-                                    <p>14 Sep 20149</p>
+                                    <p>{{post.published_at| date('d M Y')}}</p>
                                 </div>
                                 <div class="entry-summary">
-                                    <p style="color: darkslategrey;"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Voluptate perferendis
-                                        consequuntur illo aliquid nihil ad neque, debitis praesentium libero ullam
-                                        asperiores exercitationem deserunt inventore facilis, officiis,</p>
-                                    <blockquote>
-                                        <p style="color: darkslategrey;">Quisque semper nunc vitae erat pellentesque, ac
-                                            placerat arcu consectetur.
-                                            venenatis elit ac ultrices convallis. Duis est nisi, tincidunt ac urna sed,
-                                            cursus blandit lectus. In ullamcorper sit amet ligula ut eleifend. Proin
-                                            dictum
-                                            tempor ligula, ac feugiat metus. Sed finibus tortor eu scelerisque
-                                            scelerisque.</p>
-                                    </blockquote>
-                                    <p style="color: darkslategrey;">aliquam maiores asperiores recusandae commodi
-                                        blanditiis ipsum tempora culpa
-                                        possimus assumenda ab quidem a voluptatum quia natus? Ex neque, saepe
-                                        reiciendis
-                                        quasi velit perspiciatis error vel quas quibusdam autem nesciunt voluptas odit
-                                        quis
-                                        dignissimos eos aspernatur voluptatum est repellat. Pariatur praesentium,
-                                        corrupti
-                                        deserunt ducimus quo doloremque nostrum aspernatur saepe cupiditate sit autem
-                                        exercitationem debitis, maiores vitae perferendis nemo? Voluptas illo, animi
-                                        temporibus quod earum molestias eaque, iure rem amet autem dignissimos officia
-                                        dolores numquam distinctio esse voluptates optio pariatur aspernatur omnis?
-                                        Ipsam
-                                        qui commodi velit natus reiciendis quod quibusdam nemo eveniet similique animi!
-                                    </p>
+                                   {{post.content| raw}}
                                     <div class="tag-line">
                                         <h6>Tag :</h6>
                                         <a href="#">Necklaces</a>,
