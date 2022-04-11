@@ -1,15 +1,24 @@
-url = "/blog-page/:page?"
+url = "/blog-page/:page"
 layout = "default"
 title = "Blog"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
-postsPerPage = 9
+categoryFilter = "{{ :slug }}"
+postsPerPage = 1
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
-categoryPage = "blog/category"
+categoryPage = "category"
 postPage = "blog-details"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 1
+categoryPage = "category"
 ==
+<!-- breadcrumb area start -->
+
+
 <main>
     <!-- breadcrumb area start -->
     <div class="breadcrumb-area">
@@ -21,7 +30,7 @@ postPage = "blog-details"
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{'home'| page}}"><i class="fa fa-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">blog no sidebar</li>
+                                <li class="breadcrumb-item active" aria-current="page">blog sidebar</li>
                             </ul>
                         </nav>
                     </div>
@@ -32,17 +41,36 @@ postPage = "blog-details"
     <!-- breadcrumb area end -->
 
 
+
     <!-- blog main wrapper start -->
     <div class="blog-main-wrapper section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-lg-3 order-2">
+                    <aside class="blog-sidebar-wrapper">
+                        <div class="blog-sidebar">
+                            <h4 class="title">Search</h4>
+                            <div class="sidebar-serch-form">
+                                <form action="#">
+                                    <input type="text" class="search-field" placeholder="search here">
+                                    <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                        </div> <!-- single sidebar end -->
+                        <div class="blog-sidebar">
+                            <h4 class="title">Categories</h4>
+                             {%component 'blogCategories'%}
+                        </div>  
+                       
+                    </aside>
+                </div>
+                <div class="col-lg-9 order-1">
                     <div class="blog-item-wrapper">
                         <!-- blog item wrapper end -->
                         <div class="row mbn-30">
                             {% for post in blogPosts.posts %}
-                            <div class="col-md-4">
-                                <!-- blog post item start -->
+                            <div class="col-md-6">
+
                                 <div class="blog-post-item mb-30">
                                     <figure class="blog-thumb">
                                         <a href="{{  post.url }}">
@@ -50,7 +78,7 @@ postPage = "blog-details"
                                             <img src="{{ image.path }}" alt="blog image">
                                             {% endfor %}
                                         </a>
-                                    </figure>
+                                    </figure>  
                                     <div class="blog-content">
                                         <div class="blog-meta">
                                             <p>{{post.published_at| date('d M')}}</p>
@@ -62,188 +90,27 @@ postPage = "blog-details"
                                         <a href="{{  post.url }}" class="read-more">Read More</a>
                                     </div>
                                 </div>
-                                <!-- blog post item end -->
+
                             </div>
                             {% endfor %}
-                            <!-- <div class="col-md-6">
-                                
-                                <div class="blog-post-item mb-30">
-                                    <figure class="blog-thumb">
-                                        <div class="" style=" ">
-                                            <div class="draggable " >
-                                                <div class="blog_page_slider">
-                                                    
-                                                    <div class="slick-slide slick-current slick-active"
-                                                        style="width: 510px;"
-                                                        id="slick-slide00">
-
-                                                                                                         
-                                                        <div>
-                                                            <div class="blog-single-slide"
-                                                                style="width: 100%; display: inline-block;">
-                                                                <a href="{{  'blog-details.htm' | page }}" tabindex="0">
-                                                                    <img src="{{ 'assets/img/blog/blog-02.jpg' | theme  }}"
-                                                                        alt="blog image">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="slick-slide" data-slick-index="1" 
-                                                        style="width: 510px;"  
-                                                        id="slick-slide01">
-                                                        <div>
-                                                            <div class="blog-single-slide"
-                                                                style="width: 100%; display: inline-block;">
-                                                                <a href="{{  'blog-details.htm' | page }}"
-                                                                    tabindex="-1">
-                                                                    <img src="{{ 'assets/img/blog/blog-03.jpg' | theme  }}"
-                                                                        alt="blog image">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="slick-slide" 
-                                                        style="width: 510px;"  
-                                                        id="slick-slide02">
-                                                        <div>
-                                                            <div class="blog-single-slide"
-                                                                style="width: 100%; display: inline-block;">
-                                                                <a href="{{  'blog-details.htm' | page }}"
-                                                                    tabindex="-1">
-                                                                    <img src="{{ 'assets/img/blog/blog-04.jpg' | theme  }}"
-                                                                        alt="blog image">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                  
-                                                   
-                                                   
-                                                </div>
-                                            </div>
-
-                                            
-                                        </div>
-                                    </figure>
-                                    <div class="blog-content">
-                                        <div class="blog-meta">
-                                            <p>14 Sep</p>
-                                        </div>
-                                        <h3 class="blog-title">
-                                            <a href="{{  'blog-details.htm' | page }}">Children Left Alone Refresh</a>
-                                        </h3>
-                                        <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed
-                                            do eius tempor incididunt ut labore.</p>
-                                        <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
-                                    </div>
-                                </div> -->
-                            <!-- blog post item end -->
-                            <!-- </div> -->
-                            <!-- <div class="col-md-6">
-                                
-                                <div class="blog-post-item mb-30">
-                                    <figure class="blog-thumb ratio ratio-16x9">
-                                        <iframe
-                                            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/501298839&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                                    </figure>
-                                    <div class="blog-content">
-                                        <div class="blog-meta">
-                                            <p>14 Sep</p>
-                                        </div>
-                                        <h3 class="blog-title">
-                                            <a href="{{  'blog-details.htm' | page }}">Loto Winner Offering Money</a>
-                                        </h3>
-                                        <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed
-                                            do eius tempor incididunt ut labore.</p>
-                                        <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
-                                    </div>
-                                </div>
-                               
-                            </div> -->
-                            <!-- <div class="col-md-6">
-                               
-                                <div class="blog-post-item mb-30">
-                                    <figure class="blog-thumb ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/WeA7edXsU40"
-                                            allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
-                                    </figure>
-                                    <div class="blog-content">
-                                        <div class="blog-meta">
-                                            <p>14 Sep</p>
-                                        </div>
-                                        <h3 class="blog-title">
-                                            <a href="{{  'blog-details.htm' | page }}">People Willing When Money</a>
-                                        </h3>
-                                        <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed
-                                            do eius tempor incididunt ut labore.</p>
-                                        <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
-                                    </div>
-                                </div>
-                                
-                            </div> -->
-                            <!-- <div class="col-md-6">
-                                
-                                <div class="blog-post-item mb-30">
-                                    <figure class="blog-thumb">
-                                        <a href="{{  'blog-details.htm' | page }}">
-                                            <img src="{{ 'assets/img/blog/blog-03.jpg' | theme  }}" alt="blog image">
-                                        </a>
-                                    </figure>
-                                    <div class="blog-content">
-                                        <div class="blog-meta">
-                                            <p>14 Sep</p>
-                                        </div>
-                                        <h3 class="blog-title">
-                                            <a href="{{  'blog-details.htm' | page }}">Children Left Alone Refresh</a>
-                                        </h3>
-                                        <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed
-                                            do eius tempor incididunt ut labore.</p>
-                                        <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="col-md-6">
-                               
-                                <div class="blog-post-item mb-30">
-                                    <figure class="blog-thumb">
-                                        <a href="{{  'blog-details.htm' | page }}">
-                                            <img src="{{ 'assets/img/blog/blog-04.jpg' | theme  }}" alt="blog image">
-                                        </a>
-                                    </figure>
-                                    <div class="blog-content">
-                                        <div class="blog-meta">
-                                            <p>14 Sep</p>
-                                        </div>
-                                        <h3 class="blog-title">
-                                            <a href="{{  'blog-details.htm' | page }}">People Willing When Money</a>
-                                        </h3>
-                                        <p class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed
-                                            do eius tempor incididunt ut labore.</p>
-                                        <a href="{{  'blog-details.htm' | page }}" class="read-more">Read More</a>
-                                    </div>
-                                </div>
-                               
-                            </div> -->
                         </div>
                         <!-- blog item wrapper end -->
-                        {% if posts.lastPage > 1 %}
+
                         <!-- start pagination area -->
+                        {% if posts.lastPage > 1 %}
                         <div class="paginatoin-area text-center">
                             <ul class="pagination-box d-flex flex-wrap">
-                              
+
                                 {% for page in 1..posts.lastPage%}
 
                                 <li class="{{posts.currentPage == page ? 'active' : null }}"><a
                                         href="{{ 'blog-page'| page({page:page})}}">{{page}}</a></li>
- 
+
                                 {% endfor %}
                                 {% if posts.currentPage != posts.lastPage %}
                                 <li><a href="{{ 'blog-page'| page({page: posts.currentPage+1})}}"><i
                                             class="fa fa-angle-right"></i></a></li>
                                 {% endif %}
-                                
-
                             </ul>
                         </div>
                         {% endif %}
@@ -253,5 +120,5 @@ postPage = "blog-details"
             </div>
         </div>
     </div>
-    <!-- blog main wrapper end -->
+
 </main>
