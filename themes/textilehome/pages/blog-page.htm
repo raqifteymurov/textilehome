@@ -100,7 +100,10 @@ categoryPage = "category"
                         {% if posts.lastPage > 1 %}
                         <div class="paginatoin-area text-center">
                             <ul class="pagination-box d-flex flex-wrap">
-
+                                {% if posts.currentPage > 1 %}
+                                <li><a href="{{ 'blog-page'| page({page: posts.currentPage-1})}}"><i
+                                            class="fa fa-angle-left"></i></a></li>
+                                {% endif %}
                                 {% for page in 1..posts.lastPage%}
 
                                 <li class="{{posts.currentPage == page ? 'active' : null }}"><a
