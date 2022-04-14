@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Product
+
+# Model Form Field configuration
+form: $/vadim/goods/models/product/fields.yaml
+
+# Model Class name
+modelClass: Vadim\Goods\Models\Product
+
+# Default redirect location
+defaultRedirect: vadim/goods/products
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: vadim/goods/products/update/:id
+    redirectClose: vadim/goods/products
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: vadim/goods/products
+    redirectClose: vadim/goods/products
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

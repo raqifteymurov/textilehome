@@ -1,0 +1,4 @@
+1.0.1: 
+- First version of goods
+- create_categories_table.php
+- create_products_table.php

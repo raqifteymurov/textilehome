@@ -1,0 +1,15 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+        span: storm
+        cssClass: col-md-2
+    name:
+        label: Name
+        searchable: true
+        span: storm
+        cssClass: col-md-10

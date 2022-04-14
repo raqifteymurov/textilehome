@@ -1,0 +1,3 @@
+{% for cat in category %}
+<a href="{{ 'category'| page({slug:cat.slug})}}">{{cat.name}}</a>
+{% endfor %}

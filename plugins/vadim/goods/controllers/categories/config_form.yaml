@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Category
+
+# Model Form Field configuration
+form: $/vadim/goods/models/category/fields.yaml
+
+# Model Class name
+modelClass: Vadim\Goods\Models\Category
+
+# Default redirect location
+defaultRedirect: vadim/goods/categories
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: vadim/goods/categories/update/:id
+    redirectClose: vadim/goods/categories
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: vadim/goods/categories
+    redirectClose: vadim/goods/categories
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

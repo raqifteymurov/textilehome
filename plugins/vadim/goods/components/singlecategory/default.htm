@@ -1,0 +1,3 @@
+{% for prod in category.product %}
+    <a href="{{'product'| page({slug: prod.slug })}}">{{prod.name}}</a>
+{% endfor %}
