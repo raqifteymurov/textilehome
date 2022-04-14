@@ -865,33 +865,7 @@ thanksMessage = "Thanks for your opinion!"
 
 
 
-
-
-
-    <!-- banner statistics area start -->
-    <!-- <div class="banner-statistics-area">
-        <div class="container">
-            <div class="row mtn-20">
-                <div class="col-sm-6">
-                    <figure class="banner-statistics mt-20">
-                        <a href="{{ 'product_details' | page }}">
-                            <img src="{{ 'assets/img/banner/img1-top.jpg' | theme }}" alt="product banner">
-                        </a>
-                    </figure>
-                </div>
-                <div class="col-sm-6">
-                    <figure class="banner-statistics mt-20">
-                        <a href="{{ 'product_details' | page }}">
-                            <img src="{{ 'assets/img/banner/img2-top.jpg' | theme }}" alt="product banner">
-                        </a>
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- banner statistics area end -->
-
-
+ 
 
 
     <!-- featured product area start -->
@@ -922,13 +896,10 @@ thanksMessage = "Thanks for your opinion!"
                                         <div>
                                             <div class="product-item" style="width: 100%; display: inline-block;">
                                                 <figure class="product-thumb">
-                                                    <a href="{{ 'product_details' | page }}" tabindex="-1">
-                                                        <img class="pri-img"
-                                                            src="{{ prod.image|media}}"
-                                                            alt="product">
-                                                        <img class="sec-img"
-                                                            src="{{ 'assets/img/product/product-12.jpg' | theme }}"
-                                                            alt="product">
+                                                    <a href="{{ 'product_details' | page({slug: prod.slug}) }}" tabindex="-1">
+                                                        <img class=""
+                                                        src="{{ prod.image| media }}"
+                                                        alt="product">
                                                     </a>
                                                     {% if prod.discount>0%}
                                                     <div class="product-badge">

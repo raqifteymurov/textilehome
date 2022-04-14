@@ -59,9 +59,9 @@ categoryPage = "category"
                         </div> <!-- single sidebar end -->
                         <div class="blog-sidebar">
                             <h4 class="title">Categories</h4>
-                             {%component 'blogCategories'%}
-                        </div>  
-                       
+                            {%component 'blogCategories'%}
+                        </div>
+
                     </aside>
                 </div>
                 <div class="col-lg-9 order-1">
@@ -78,7 +78,7 @@ categoryPage = "category"
                                             <img src="{{ image.path }}" alt="blog image">
                                             {% endfor %}
                                         </a>
-                                    </figure>  
+                                    </figure>
                                     <div class="blog-content">
                                         <div class="blog-meta">
                                             <p>{{post.published_at| date('d M')}}</p>
