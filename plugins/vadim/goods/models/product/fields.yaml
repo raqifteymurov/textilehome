@@ -17,5 +17,20 @@ fields:
     price: 
         type: number
         label: Price
+        span: storm
+        cssClass: col-md-6
+    image:
+        label: image  
+        type: mediafinder
+        span: storm
+        cssClass: col-md-6
+    discount:
+        label: Discount
+        type: number
     category: 
         type: relation
+
+    
+
+
+

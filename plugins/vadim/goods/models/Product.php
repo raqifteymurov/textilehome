@@ -30,7 +30,8 @@ class Product extends Model
     public $rules = [
         'name' => 'required',
         'slug' => 'required | between: 3, 64',
-        'price' => 'required'
+        'price' => 'required',
+        'image' => 'required'
     ];
 
     /**
