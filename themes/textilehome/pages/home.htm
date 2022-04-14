@@ -918,6 +918,7 @@ thanksMessage = "Thanks for your opinion!"
                         <div class="draggable">
                             <div class="our_products_slider">
                                 <div class="d-flex flex-column" style="width: 218px;">
+                                    {% for prod in product %}
                                     <div>
                                         <div class="product-item" style="width: 100%; display: inline-block;">
                                             <figure class="product-thumb">
@@ -961,7 +962,12 @@ thanksMessage = "Thanks for your opinion!"
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
+                                    {% if loop.index % 2 == 0 %}
+                                        </div>
+                                        <div class="d-flex flex-column" style="width: 218px;">
+                                    {% endif %}
+                                    {% endfor %}
+                                    <!-- <div>
                                         <div class="product-item" style="width: 100%; display: inline-block;">
                                             <figure class="product-thumb">
                                                 <a href="{{ 'product_details' | page }}" tabindex="-1">
@@ -1004,6 +1010,7 @@ thanksMessage = "Thanks for your opinion!"
                                         </div>
                                     </div>
                                 </div>
+                                
 
                                 <div class="d-flex flex-column" style="width: 218px;">
                                     <div>
@@ -1351,7 +1358,7 @@ thanksMessage = "Thanks for your opinion!"
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>
@@ -1371,7 +1378,7 @@ thanksMessage = "Thanks for your opinion!"
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>            
 
 
 

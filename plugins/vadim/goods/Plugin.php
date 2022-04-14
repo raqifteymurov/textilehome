@@ -95,7 +95,7 @@ class Plugin extends PluginBase
             'goods' => [
                 'label'       => 'goods',
                 'url'         => Backend::url('vadim/goods/products'),
-                'icon'        => 'icon-product-cart',
+                'icon'        => 'icon-cart',
                 'permissions' => ['vadim.goods.*'],
                 'order'       => 500,
                 'sideMenu' => [
