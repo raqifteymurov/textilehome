@@ -4,9 +4,9 @@
     <?= $titleFrom ? 'data-title-from="'.$titleFrom.'"' : '' ?>
     <?= $minItems ? 'data-min-items="'.$minItems.'"' : '' ?>
     <?= $maxItems ? 'data-max-items="'.$maxItems.'"' : '' ?>
-    <?php /* @deprecated */ ?><?= $style ? 'data-style="'.$style.'"' : '' ?>
     data-display-mode="<?= $displayMode ?>"
     data-use-reorder="<?= $showReorder ?>"
+    data-items-expanded="<?= $itemsExpanded ?>"
     data-sortable-handle=".<?= $this->getId('items') ?>-handle"
     data-remove-handler="<?= $this->getEventHandler('onRemoveItem') ?>"
     data-remove-confirm="<?= e(trans('backend::lang.form.action_confirm')) ?>"

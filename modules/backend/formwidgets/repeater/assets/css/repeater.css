@@ -46,6 +46,9 @@
 .field-repeater > ul > li.field-repeater-item.collapsed > .repeater-content {
   display: none;
 }
+.field-repeater.repeater-mode-accordion > ul > li.field-repeater-item > .repeater-header {
+  cursor: pointer;
+}
 .field-repeater.repeater-mode-accordion.is-singular > ul > li.field-repeater-item:not(.collapsed) {
   padding-right: 34px;
   min-height: 95px;
@@ -344,6 +347,10 @@
     overflow-x: auto;
     white-space: nowrap;
     margin-bottom: 5px;
+  }
+  .field-repeater.repeater-mode-builder > .field-repeater-builder > ul > li .group-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .field-repeater.repeater-mode-builder > .field-repeater-builder > ul > li.field-repeater-group {
     width: 250px;

@@ -45,6 +45,11 @@ class Toolbar extends WidgetBase
     public $cssClasses = [];
 
     /**
+     * @var string listWidgetId
+     */
+    public $listWidgetId;
+
+    /**
      * Initialize the widget, called by the constructor and free from its parameters.
      */
     public function init()

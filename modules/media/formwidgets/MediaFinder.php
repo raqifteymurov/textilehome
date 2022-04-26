@@ -91,14 +91,7 @@ class MediaFinder extends FormWidgetBase
             $this->previewMode = true;
         }
 
-        if ($this->maxItems === null) {
-            if ($this->model instanceof Model) {
-                $this->maxItems = $this->model->isJsonable($this->valueFrom) ? 0 : 1;
-            }
-            else {
-                $this->maxItems = 1;
-            }
-        }
+        $this->processMaxItems();
     }
 
     /**
@@ -164,6 +157,23 @@ class MediaFinder extends FormWidgetBase
     public function getSaveValue($value)
     {
         return $this->maxItems === 1 ? $value : json_decode($value, true);
+    }
+
+    /**
+     * processMaxItems
+     */
+    protected function processMaxItems()
+    {
+        if ($this->maxItems === null) {
+            if ($this->model instanceof Model) {
+                $this->maxItems = $this->model->isJsonable($this->valueFrom) ? 0 : 1;
+            }
+            else {
+                $this->maxItems = 1;
+            }
+        }
+
+        $this->maxItems = (int) $this->maxItems;
     }
 
     /**

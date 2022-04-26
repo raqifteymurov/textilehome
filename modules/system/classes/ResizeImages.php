@@ -98,19 +98,22 @@ class ResizeImages
     }
 
     /**
-     * prepareRequest
+     * prepareRequest for resizing
      */
     protected function prepareRequest($image, $width = null, $height = null, $options = [])
     {
         $imageInfo = $this->processImage($image);
-        $options = $this->getDefaultResizeOptions(['extension' => $imageInfo['extension']] + $options);
+        $options = $this->getDefaultResizeOptions($options);
+
+        // Use the same extension as source image
+        if ($options['extension'] === 'auto') {
+            $options['extension'] = $imageInfo['extension'];
+        }
 
         $width = (int) $width;
         $height = (int) $height;
 
-        /*
-         * Check is resized
-         */
+        // Check is resized
         $cacheKey = $this->getCacheKey([$imageInfo, $width, $height, $options]);
         $filename = $this->getResizeFilename($cacheKey, $width, $height, $options);
         $disk = Storage::disk(Config::get('system.storage.resources.disk'));
@@ -121,9 +124,7 @@ class ResizeImages
             return $this->getPublicPath() . '/' . $filename;
         }
 
-        /*
-         * Cache and process
-         */
+        // Cache and process
         $cacheInfo = $this->getCache($cacheKey);
 
         if (!$cacheInfo) {

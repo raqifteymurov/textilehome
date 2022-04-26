@@ -232,8 +232,8 @@
             .trigger('change');
     }
 
-    ListWidget.prototype.beforeAjaxRequest = function(ev, data) {
-        data.options.data.allChecked = this.getAllChecked();
+    ListWidget.prototype.beforeAjaxRequest = function(ev, context) {
+        context.options.data.allChecked = this.getAllChecked();
     }
 
     // LIST WIDGET PLUGIN DEFINITION
@@ -251,9 +251,9 @@
             if (!data) $this.data('oc.listwidget', (data = new ListWidget(this, options)))
             if (typeof option == 'string') result = data[option].apply(data, args)
             if (typeof result != 'undefined') return false
-        })
+        });
 
-        return result ? result : this
+        return result ? result : this;
       }
 
     $.fn.listWidget.Constructor = ListWidget
@@ -290,6 +290,57 @@
 
     $(document).render(function(){
         $('[data-control="listwidget"]').listWidget();
-    })
+    });
+
+    // LIST HELPER DATA-API
+    // ==============
+
+    $.fn.listCheckedTriggerOn = function() {
+        this.each(function() {
+            var $buttonEl = $(this),
+                listId = $buttonEl.closest('[data-list-linkage]').data('list-linkage');
+
+            // No list or already bound
+            if (!listId || $buttonEl.data('oc.listCheckedTriggerOn')) {
+                $buttonEl.trigger('oc.triggerOn.update');
+                return;
+            }
+
+            $buttonEl.triggerOn({
+                triggerAction: 'enable',
+                triggerCondition: 'checked',
+                trigger: '#' + listId + ' > .control-list:first .list-checkbox input[type=checkbox]'
+            });
+
+            $buttonEl.data('oc.listCheckedTriggerOn', true);
+        });
+
+        return this;
+    }
+
+    $.fn.listCheckedRequest = function() {
+        this.each(function() {
+            var $buttonEl = $(this),
+                listId = $buttonEl.closest('[data-list-linkage]').data('list-linkage');
+
+            // No list or already bound
+            if (!listId || $buttonEl.data('oc.listCheckedRequest')) {
+                return;
+            }
+
+            $buttonEl.on('ajaxSetup', function (ev, context) {
+                context.options.data.checked = $.oc.listGetChecked('#' + listId + ' > .control-list:first');
+            });
+
+            $buttonEl.data('oc.listCheckedRequest', true);
+        });
+
+        return this;
+    }
+
+    $(document).render(function(){
+        $('[data-list-checked-trigger]').listCheckedTriggerOn();
+        $('[data-list-checked-request]').listCheckedRequest();
+    });
 
 }(window.jQuery);

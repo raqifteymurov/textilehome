@@ -31,6 +31,7 @@
     var Repeater = function(element, options) {
         this.options = options;
         this.$el = $(element);
+        this.$itemContainer = $('> .field-repeater-items', this.$el);
         this.itemCount = 0;
         this.canRemove = true;
         this.repeaterId = $.oc.domIdManager.generate('repeater');
@@ -41,8 +42,6 @@
     }
 
     Repeater.prototype = Object.create(BaseProto);
-    Object.assign(Repeater.prototype, $.oc.fieldRepeater.standardMode.prototype);
-    Object.assign(Repeater.prototype, $.oc.fieldRepeater.builderMode.prototype);
     Repeater.prototype.constructor = Repeater;
 
     Repeater.DEFAULTS = {
@@ -53,28 +52,19 @@
         duplicateHandler: 'onDuplicateItem',
         removeConfirm: 'Are you sure?',
         displayMode: 'accordion',
+        itemsExpanded: true,
         titleFrom: null,
         minItems: null,
         maxItems: null
     }
 
     Repeater.prototype.init = function() {
-        this.$itemContainer = $('> .field-repeater-items', this.$el);
-
-        if (this.options.displayMode === 'builder') {
-            this.initBuilderMode();
-        }
-        else {
-            this.initStandardMode();
-        }
-
         if (this.options.useReorder) {
             this.bindSorting();
         }
 
         // Items
         var headSelect = this.selectorHeader;
-        this.$el.on('click', headSelect, this.proxy(this.clickItemHeader));
         this.$el.on('change', headSelect + ' input[type=checkbox]', this.proxy(this.clickItemCheckbox));
         this.$el.on('click', headSelect + ' .repeater-item-menu', this.proxy(this.clickItemMenu));
         this.$el.on('click', headSelect + ' [data-repeater-move-up]', this.proxy(this.clickMoveItemUp));
@@ -85,6 +75,7 @@
         // Toolbar
         this.$toolbar = $(this.selectorToolbar, this.$el);
         this.$toolbar.on('click', '> [data-repeater-cmd=add-group]', this.proxy(this.clickAddGroupButton));
+        this.$toolbar.on('click', '> [data-repeater-cmd=add]', this.proxy(this.onAddItemButton));
         this.$toolbar.on('ajaxDone', '> [data-repeater-cmd=add]', this.proxy(this.onAddItemSuccess));
 
         this.$el.one('dispose-control', this.proxy(this.dispose));
@@ -96,25 +87,23 @@
         this.countItems();
         this.togglePrompt();
 
-        // @deprecated
-        this.applyStyle();
-
         this.extendExternalToolbar();
     }
 
     Repeater.prototype.dispose = function() {
-        this.sortable.destroy();
+        if (this.options.useReorder) {
+            this.sortable.destroy();
+        }
 
         if (this.options.displayMode === 'builder') {
             this.disposeBuilderMode();
         }
         else {
-            this.disposeStandardMode();
+            this.disposeAccordionMode();
         }
 
         // Items
         var headSelect = this.selectorHeader;
-        this.$el.off('click', headSelect, this.proxy(this.clickItemHeader));
         this.$el.off('change', headSelect + ' input[type=checkbox]', this.proxy(this.clickItemCheckbox));
         this.$el.off('click', headSelect + ' .repeater-item-menu', this.proxy(this.clickItemMenu));
         this.$el.off('click', headSelect + ' [data-repeater-move-up]', this.proxy(this.clickMoveItemUp));
@@ -124,6 +113,7 @@
 
         // Toolbar
         this.$toolbar.off('click', '> [data-repeater-cmd=add-group]', this.proxy(this.clickAddGroupButton));
+        this.$toolbar.off('click', '> [data-repeater-cmd=add]', this.proxy(this.onAddItemButton));
         this.$toolbar.off('ajaxDone', '> [data-repeater-cmd=add]', this.proxy(this.onAddItemSuccess));
 
         this.$el.off('dispose-control', this.proxy(this.dispose));
@@ -158,24 +148,6 @@
 
     Repeater.prototype.onSortableEnd = function(ev) {
         this.eventSortableOnEnd && this.eventSortableOnEnd();
-    }
-
-    Repeater.prototype.clickItemHeader = function(ev) {
-        var $target = $(ev.target);
-        if (
-            !$target.hasClass('repeater-header') &&
-            !$target.hasClass('repeater-item-title') &&
-            !$target.hasClass('repeater-item-checkbox')
-        ) {
-            return;
-        }
-
-        var $item = $target.closest('.repeater-header'),
-            $checkbox = $('input[type=checkbox]:first', $item),
-            checked = $checkbox.is(':checked');
-
-        $checkbox.prop('checked', !checked);
-        this.clickItemCheckbox({ target: $checkbox.get(0) });
     }
 
     Repeater.prototype.clickItemCheckbox = function(ev) {
@@ -299,6 +271,10 @@
         this.onSortableEnd();
     }
 
+    Repeater.prototype.onAddItemButton = function(ev) {
+        this.eventOnAddItem && this.eventOnAddItem();
+    }
+
     Repeater.prototype.clickAddGroupButton = function(ev) {
         var self = this,
             templateHtml = $('> [data-group-palette-template]', this.$el).html(),
@@ -380,55 +356,25 @@
             $target = $item;
         }
 
-        var $textInput = $('input[type=text]:first, select:first', $target).first();
+        var result = '',
+            $textInput = $('input[type=text]:first, select:first', $target).first();
+
         if ($textInput.length) {
-            switch($textInput.prop("tagName")) {
+            switch ($textInput.prop("tagName")) {
                 case 'SELECT':
-                    return $textInput.find('option:selected').text();
+                    result = $textInput.find('option:selected').text();
                 default:
-                    return $textInput.val();
+                    result = $textInput.val();
             }
         }
         else {
             var $disabledTextInput = $('.text-field:first > .form-control', $target);
             if ($disabledTextInput.length) {
-                return $disabledTextInput.text();
+                result = $disabledTextInput.text();
             }
         }
 
-        return defaultText;
-    }
-
-    // @deprecated
-    Repeater.prototype.getStyle = function() {
-        var style = 'default';
-
-        // Validate style
-        if (this.options.style && ['collapsed', 'accordion'].indexOf(this.options.style) !== -1) {
-            style = this.options.style;
-        }
-
-        return style;
-    }
-
-    // @deprecated
-    Repeater.prototype.applyStyle = function() {
-        var style = this.getStyle(),
-            items = $(this.$el).children('.field-repeater-items').children('.field-repeater-item'),
-            self = this;
-
-        $.each(items, function(key, item) {
-            switch (style) {
-                case 'collapsed':
-                    self.collapse($(item));
-                    break;
-                case 'accordion':
-                    if (key !== 0) {
-                        self.collapse($(item));
-                    }
-                    break;
-            }
-        });
+        return result ? result : defaultText;
     }
 
     Repeater.prototype.findItemFromIndex = function(itemIndex) {

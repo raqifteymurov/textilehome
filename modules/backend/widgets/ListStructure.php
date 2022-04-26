@@ -249,7 +249,7 @@ class ListStructure extends Lists
             }
         }
 
-        $this->fireSystemEvent('backend.list.reorderStructure');
+        $this->fireSystemEvent('backend.list.reorderStructure', [$item]);
 
         return $this->onRefresh();
     }

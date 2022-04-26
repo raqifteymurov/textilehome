@@ -70,10 +70,10 @@ class Repeater extends FormWidgetBase
     public $displayMode;
 
     /**
-     * @var string style
-     * @deprecated
+     * @var bool itemsExpanded will expand the repeater item by default, otherwise
+     * they will be collapsed and only select one at a time when clicking the header.
      */
-    public $style;
+    public $itemsExpanded = true;
 
     /**
      * @var string Defines a mount point for the editor toolbar.
@@ -147,10 +147,9 @@ class Repeater extends FormWidgetBase
     {
         $this->fillFromConfig([
             'form',
-            // @deprecated
-            'style',
             'prompt',
             'displayMode',
+            'itemsExpanded',
             'showReorder',
             'showDuplicate',
             'titleFrom',
@@ -170,6 +169,8 @@ class Repeater extends FormWidgetBase
         $this->processRelationMode();
 
         $this->processLoadedState();
+
+        $this->processLegacyConfig();
 
         // First pass will contain postback, then raw attributes
         // This occurs to bind widgets to the controller early
@@ -207,14 +208,13 @@ class Repeater extends FormWidgetBase
 
         $this->vars['name'] = $this->getFieldName();
         $this->vars['displayMode'] = $this->getDisplayMode();
+        $this->vars['itemsExpanded'] = $this->itemsExpanded;
         $this->vars['prompt'] = $this->prompt;
         $this->vars['formWidgets'] = $this->formWidgets;
         $this->vars['titleFrom'] = $this->titleFrom;
         $this->vars['groupKeyFrom'] = $this->groupKeyFrom;
         $this->vars['minItems'] = $this->minItems;
         $this->vars['maxItems'] = $this->maxItems;
-        // @deprecated
-        $this->vars['style'] = $this->style;
         $this->vars['useRelation'] = $this->useRelation;
         $this->vars['useGroups'] = $this->useGroups;
         $this->vars['groupDefinitions'] = $this->groupDefinitions;
@@ -230,9 +230,7 @@ class Repeater extends FormWidgetBase
     protected function loadAssets()
     {
         $this->addCss('css/repeater.css', 'core');
-        $this->addJs('js/repeater.accordion.js', 'core');
-        $this->addJs('js/repeater.builder.js', 'core');
-        $this->addJs('js/repeater.js', 'core');
+        $this->addJs('js/repeater-min.js', 'core');
     }
 
     /**
@@ -264,6 +262,18 @@ class Repeater extends FormWidgetBase
     protected function getLoadedValueFromPost()
     {
         return post($this->formField->getName());
+    }
+
+    /**
+     * processLegacyConfig converts deprecated options to latest
+     */
+    protected function processLegacyConfig()
+    {
+        if ($style = $this->getConfig('style')) {
+            if ($style === 'accordion' || $style === 'collapsed') {
+                $this->itemsExpanded = false;
+            }
+        }
     }
 
     /**

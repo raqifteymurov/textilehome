@@ -1,23 +1,31 @@
 /*
  * Field Repeater - Builder Mode
  *
- * Logic fo rthe builder visual mode
+ * Logic for the builder visual mode
  *
  */
-+function ($) { "use strict";
++function ($) {
+    "use strict";
 
-    // NAMESPACES
-    // ============================
+    var RepeaterBuilder = $.fn.fieldRepeater.Constructor;
 
-    if ($.oc === undefined) {
-        $.oc = {};
+    // OVERLOADED MODULE
+    // =================
+
+    var overloadedInit = RepeaterBuilder.prototype.init;
+
+    RepeaterBuilder.prototype.init = function () {
+        if (this.options.displayMode === 'builder') {
+            this.initBuilderMode();
+            overloadedInit.apply(this);
+        }
+        else {
+            overloadedInit.apply(this);
+        }
     }
 
-    if ($.oc.fieldRepeater === undefined) {
-        $.oc.fieldRepeater = {};
-    }
-
-    var RepeaterBuilder = function() {};
+    // NEW MODULE
+    // =================
 
     RepeaterBuilder.prototype.initBuilderMode = function() {
         // Overrides
@@ -150,7 +158,5 @@
             self.selectBuilderItem($item.data('repeater-index'));
         });
     }
-
-    $.oc.fieldRepeater.builderMode = RepeaterBuilder;
 
 }(window.jQuery);

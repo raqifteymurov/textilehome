@@ -6,20 +6,8 @@ use ApplicationException;
 use Backend\Classes\ControllerBehavior;
 
 /**
- * Used for reordering and sorting records.
- *
- * This behavior is implemented in the controller like so:
- *
- *     public $implement = [
- *         \Backend\Behaviors\ReorderController::class,
- *     ];
- *
- *     public $reorderConfig = 'config_reorder.yaml';
- *
- * The `$reorderConfig` property makes reference to the configuration
- * values as either a YAML file, located in the controller view directory,
- * or directly as a PHP array.
- *
+ * ReorderController is deprecated
+ * @deprecated see ListController with structure config
  * @package october\backend
  * @author Alexey Bobkov, Samuel Georges
  */

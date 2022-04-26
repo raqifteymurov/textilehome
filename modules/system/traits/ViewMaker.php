@@ -188,6 +188,8 @@ trait ViewMaker
      */
     public function getViewPath($fileName, $viewPath = null)
     {
+        $viewExtensions = ['php', 'htm'];
+
         if (!isset($this->viewPath)) {
             $this->viewPath = $this->guessViewPath();
         }
@@ -201,28 +203,35 @@ trait ViewMaker
             $viewPath = [$viewPath];
         }
 
+        // Remove extension from path
+        $fileNameNe = File::anyname($fileName);
+
+        // Check in view paths
         foreach ($viewPath as $path) {
             $fullPath = File::symbolizePath($path);
-            if (File::extension($fileName)) {
-                $_fileName = $fullPath . '/' . $fileName;
+
+            foreach ($viewExtensions as $extension) {
+                $_fileName = $fullPath . '/' . $fileNameNe . '.' . $extension;
                 if (File::isFile($_fileName)) {
                     return $_fileName;
                 }
             }
-            else {
-                foreach (['php', 'htm'] as $extension) {
-                    $_fileName = $fullPath . '/' . $fileName . '.' . $extension;
-                    if (File::isFile($_fileName)) {
-                        return $_fileName;
-                    }
-                }
-            }
         }
 
-        // Check in absolute
+        // Check in absolute (exact lookup)
         $fileName = File::symbolizePath($fileName);
         if (strpos($fileName, '/') !== false && System::checkBaseDir($fileName)) {
             return $fileName;
+        }
+
+        // Check with extension applied (v2.2 patch)
+        if (strpos($fileName, '/') !== false) {
+            foreach ($viewExtensions as $extension) {
+                $_fileName = $fileNameNe . '.' . $extension;
+                if (System::checkBaseDir($_fileName)) {
+                    return $_fileName;
+                }
+            }
         }
 
         // Returns the closest guess, although invalid

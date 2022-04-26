@@ -1,25 +1,34 @@
 /*
- * Field Repeater - Standard Mode
+ * Field Repeater - Accordion Mode
  *
- * Logic fo rthe standard visual mode
+ * Logic for the accordion visual mode
  *
  */
-+function ($) { "use strict";
++function ($) {
+    "use strict";
 
-    // NAMESPACES
-    // ============================
+    var RepeaterAccordion = $.fn.fieldRepeater.Constructor;
 
-    if ($.oc === undefined) {
-        $.oc = {};
+    // OVERLOADED MODULE
+    // =================
+
+    var overloadedInit = RepeaterAccordion.prototype.init;
+
+    RepeaterAccordion.prototype.init = function () {
+        if (this.options.displayMode === 'accordion') {
+            this.initAccordionMode();
+            overloadedInit.apply(this);
+            this.applyExpandedItems();
+        }
+        else {
+            overloadedInit.apply(this);
+        }
     }
 
-    if ($.oc.fieldRepeater === undefined) {
-        $.oc.fieldRepeater = {};
-    }
+    // NEW MODULE
+    // =================
 
-    var RepeaterStandard = function() {};
-
-    RepeaterStandard.prototype.initStandardMode = function() {
+    RepeaterAccordion.prototype.initAccordionMode = function() {
         // Overrides
         this.selectorToolbar = '> .field-repeater-toolbar:first';
         this.selectorHeader = '> .field-repeater-items > .field-repeater-item > .repeater-header';
@@ -27,26 +36,32 @@
         this.selectorChecked = '> .field-repeater-items > .field-repeater-item > .repeater-header input[type=checkbox]:checked';
         this.eventSortableOnEnd = null;
         this.eventOnChange = null;
-        this.eventOnAddItem = null;
+        this.eventOnAddItem = this.accordionOnAddItem;
         this.eventOnRemoveItem = null;
-        this.eventMenuFilter = this.standardMenuFilter;
+        this.eventMenuFilter = this.accordionMenuFilter;
 
         // Items
         var headSelect = this.selectorHeader;
-        this.$el.on('dblclick', headSelect, this.proxy(this.dblclickItemHeader));
+        this.$el.on('click', headSelect, this.proxy(this.clickItemHeader));
         this.$el.on('click', headSelect + ' [data-repeater-expand]', this.proxy(this.toggleCollapse));
         this.$el.on('click', headSelect + ' [data-repeater-collapse]', this.proxy(this.toggleCollapse));
     }
 
-    RepeaterStandard.prototype.disposeStandardMode = function() {
+    RepeaterAccordion.prototype.disposeAccordionMode = function() {
         // Items
         var headSelect = this.selectorHeader;
-        this.$el.off('dblclick', headSelect, this.proxy(this.dblclickItemHeader));
+        this.$el.off('click', headSelect, this.proxy(this.clickItemHeader));
         this.$el.off('click', headSelect + ' [data-repeater-expand]', this.proxy(this.toggleCollapse));
         this.$el.off('click', headSelect + ' [data-repeater-collapse]', this.proxy(this.toggleCollapse));
     }
 
-    RepeaterStandard.prototype.standardMenuFilter = function($item, $list) {
+    RepeaterAccordion.prototype.accordionOnAddItem = function() {
+        if (!this.options.itemsExpanded) {
+            this.collapseAll();
+        }
+    }
+
+    RepeaterAccordion.prototype.accordionMenuFilter = function($item, $list) {
         // Hide/show remove button and divider
         $('[data-repeater-remove]', $list).closest('li').toggleClass('disabled', !this.canRemove);
 
@@ -59,7 +74,7 @@
         $('[data-repeater-collapse]', $list).closest('li').toggle(!$item.hasClass('collapsed'));
     }
 
-    RepeaterStandard.prototype.dblclickItemHeader = function(ev) {
+    RepeaterAccordion.prototype.clickItemHeader = function(ev) {
         var $target = $(ev.target);
         if (
             !$target.hasClass('repeater-header') &&
@@ -69,24 +84,35 @@
             return;
         }
 
-        var $item = $target.closest('.field-repeater-item');
-        $item.hasClass('collapsed') ? this.expand($item) : this.collapse($item);
+        var $item = $target.closest('.field-repeater-item'),
+            isCollapsed = $item.hasClass('collapsed');
+
+        if (!this.options.itemsExpanded) {
+            this.collapseAll();
+        }
+
+        isCollapsed ? this.expand($item) : this.collapse($item);
     }
 
-    RepeaterStandard.prototype.toggleCollapse = function(ev) {
+    RepeaterAccordion.prototype.applyExpandedItems = function() {
+        if (this.options.itemsExpanded) {
+            return;
+        }
+
+        var items = $(this.$el).children('.field-repeater-items').children('.field-repeater-item'),
+            self = this;
+
+        $.each(items, function(key, item) {
+            self.collapse($(item));
+        });
+    }
+
+    RepeaterAccordion.prototype.toggleCollapse = function(ev) {
         var self = this,
             $item = $(ev.target).closest('.field-repeater-item'),
             isCollapsed = $item.hasClass('collapsed');
 
         ev.preventDefault();
-
-        if (this.getStyle() === 'accordion') {
-            if (isCollapsed) {
-                this.collapseAll();
-                this.expand($item);
-            }
-            return;
-        }
 
         var $items = this.getCheckedItemsOrItem($item);
         $.each($items, function(k, item) {
@@ -94,7 +120,7 @@
         });
     }
 
-    RepeaterStandard.prototype.collapseAll = function() {
+    RepeaterAccordion.prototype.collapseAll = function() {
         var self = this,
             $items = $('> .field-repeater-item', this.$itemContainer);
 
@@ -103,7 +129,7 @@
         });
     }
 
-    RepeaterStandard.prototype.expandAll = function() {
+    RepeaterAccordion.prototype.expandAll = function() {
         var self = this,
             $items = $('> .field-repeater-item', this.$itemContainer);
 
@@ -112,16 +138,14 @@
         });
     }
 
-    RepeaterStandard.prototype.collapse = function($item) {
+    RepeaterAccordion.prototype.collapse = function($item) {
         $item.addClass('collapsed');
 
         $('> .repeater-header > .repeater-item-title', $item).text(this.getCollapseTitle($item));
     }
 
-    RepeaterStandard.prototype.expand = function($item) {
+    RepeaterAccordion.prototype.expand = function($item) {
         $item.removeClass('collapsed');
     }
-
-    $.oc.fieldRepeater.standardMode = RepeaterStandard;
 
 }(window.jQuery);

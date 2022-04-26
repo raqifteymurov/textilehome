@@ -95,6 +95,10 @@ trait ParsableController
      */
     protected function makeRouterPropertyReplacement($propertyValue, array $routerParameters = []): ?array
     {
+        if (!is_string($propertyValue)) {
+            return null;
+        }
+
         $matches = [];
         if (preg_match('/^\{\{(\s*:[^\}]+)\}\}$/', $propertyValue, $matches)) {
             $paramName = trim($matches[1]);
@@ -114,6 +118,10 @@ trait ParsableController
      */
     protected function makeDynamicAttributeReplacement($attrValue, array $parameters = []): ?array
     {
+        if (!is_string($attrValue)) {
+            return null;
+        }
+
         $matches = [];
         if (preg_match_all('/\{\{([^:\}]+)\}\}/', $attrValue, $matches)) {
             $newAttrValue = $attrValue;

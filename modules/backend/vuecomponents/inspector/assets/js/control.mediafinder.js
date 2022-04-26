@@ -117,7 +117,7 @@ $.oc.module.register('backend.component.inspector.control.mediafinder', function
                             return;
                         }
 
-                        that.updateValue(items[0].publicUrl);
+                        that.updateValue(items[0].path);
                         this.hide();
                         that.$refs.input.focus();
                     }

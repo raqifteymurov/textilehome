@@ -2,7 +2,8 @@
     <div
         id="<?= $this->getId() ?>"
         class="search-input-container storm-icon-pseudo"
-        data-control="searchwidget">
+        data-control="searchwidget"
+    >
         <input
             placeholder="<?= $placeholder ?>"
             type="text"
@@ -26,9 +27,3 @@
         </button>
     </div>
 </div>
-
-<?php if ($this->listWidgetId): ?>
-    <script>
-        $('#<?= $this->getId() ?>').searchWidget('linkToListWidget', '<?= $this->listWidgetId ?>');
-    </script>
-<?php endif ?>
